@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Thread subscribeThread;
     Thread publishThread;
     private static String QUEUE_NAME_REQUEST = "loginRequest";
-    private static String QUEUE_NAME_RESPONSE= "loginResponse";
+    private static String QUEUE_NAME_RESPONSE = "loginResponse";
     private static String hostName = "amqp://yfidhcfx:D_3FHXHAUckbirmes_ZKCqICb3lFYL2V@bee.rmq.cloudamqp.com/yfidhcfx";
 
     @SuppressLint("AuthLeak")
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setupConnectionFactory(hostName);
         SendMessage();
         setupSendButton();
+
         @SuppressLint("HandlerLeak") final Handler incomingMessageHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {

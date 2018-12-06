@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         };
         subscribe(incomingMessageHandler);
     }
+
     void setupPubButton() {
         Button button = (Button) findViewById(R.id.publish);
         button.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     Thread subscribeThread;
     Thread publishThread;
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private BlockingDeque<String> queue = new LinkedBlockingDeque<String>();
+
     void publishMessage(String message) {
         //Adds a message to internal blocking queue
         try {
