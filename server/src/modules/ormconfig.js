@@ -1,10 +1,10 @@
 module.exports = {
     type: "mysql",
     host: "localhost",
-    port: 3300,
+    port: 3306,
     username: "root",
-    database: "localhost_aips",
-    password: "",
+    database: "aips",
+    password: "0000",
     entities: ["src/entiteti/*.ts"],
     logging: false
 }
