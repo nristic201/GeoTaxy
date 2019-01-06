@@ -21,14 +21,17 @@ app.use("/", (req,res) => {
   });
 });
 app.listen(3000, () => {
-  console.log("express pokrenut...");
-  require("amqplib/callback_api").connect(
-    amqp_url,
-    (err: any, conn: any) => {
-      if (err) bail(err);
-      console.log('amqp pokrenut...')
-    }
-  );
+  // console.log("express pokrenut...");
+  // require("amqplib/callback_api").connect(
+  //   amqp_url,
+  //   (err: any, conn: any) => {
+  //     if (err) bail(err);
+  //     console.log('amqp pokrenut...')
+  //   }
+  // );
+  createConnection(db).then(()=>{
+    console.log('konekcija uspesna')
+  })
 });
 
 const db = require("../src/modules/ormconfig");
