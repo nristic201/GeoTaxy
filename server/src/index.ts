@@ -11,7 +11,7 @@ app.use("/", (req,res) => {
     let t1 = await conn.getRepository(Taksista).find({
       username: obj.username
     });
-    if (t1[0].password === obj.username) {
+    if (t1[0].username === obj.username) {
       res.json(t1);
     } else {
       res.json({
@@ -33,7 +33,11 @@ app.listen(3000, () => {
     console.log('konekcija uspesna')
   })
 });
-
+// cek cas odo da nadjen resenje ima neka forica 
+//kk
+//cekam
+//do pola 10
+//tad idem
 const db = require("../src/modules/ormconfig");
 
 function bail(err: any) {
