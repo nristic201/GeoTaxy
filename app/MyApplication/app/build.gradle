@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.milica.myapplication"
+        minSdkVersion 24
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}//AIzaSyAZlyE8aYgysOKMoTYV90aH7jF9_muWLMc
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile 'com.rabbitmq:amqp-client:5.5.1'
+    compile 'com.android.volley:volley:1.1.0'
+    //noinspection GradleCompatible
+    compile 'com.google.android.gms:play-services-maps:16.0.0'
+
+    compile 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    compile 'com.google.maps.android:android-maps-utils:0.5+'
+
+}
