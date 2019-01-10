@@ -38,14 +38,16 @@ createConnection(db).then(conn => {
   })
 
   app.listen(3000, () => {
-    // console.log("express pokrenut...");
-    // require("amqplib/callback_api").connect(
-    //   amqp_url,
-    //   (err: any, conn: any) => {
-    //     if (err) bail(err);
-    //     console.log('amqp pokrenut...')
-    //   }
-    // );
+    console.log("express pokrenut...");
+    let amqp = require("amqplib/callback_api");
+    amqp.connect(
+      amqp_url,
+      (err: any, conn: any) => {
+        if (err) bail(err);
+        console.log('amqp pokrenut...');
+
+      }
+    );
 
   });
 }).catch(err => console.log(err));
@@ -72,6 +74,74 @@ function replyReceivingCorrds(conn: any, msg: string) {
     if (!err == null) bail(err);
     ch.assertExchange("amq.fanout", "fanout", { durable: true });
     ch.publish("amq.fanout", "", new Buffer(msg));
+  });
+}
+
+function receiveRequests(conn: any) {
+  conn.createChannel((err: any, ch: any) => {
+    if (!err == null) bail(err);
+    ch.assertQueue("ZahtevQueue");
+    ch.consume("ZahtevQueue", (msg: any) => {
+      if (msg) {
+        replyRequests(conn, msg.content.toString());
+      }
+    });
+  });
+}
+
+//-----------------------------------------------------------
+function replyRequests(conn: any, msg: string) {
+  conn.createChannel((err: any, ch: any) => {
+    if (!err == null) bail(err);
+    //username:zahtev
+    let request = JSON.parse(msg);
+    let taxiUsername = request.usernameTaksiste;
+    ch.assertQueue(taxiUsername + ":zahtev");
+    ch.sendToQueue(taxiUsername + ":zahtev", new Buffer(msg));
+  });
+}
+
+//-----------------
+//ne mora da se zove odgovor username nego samo OdgovorQueue
+//-----------------
+
+function receiveResponse(conn: any) {
+  conn.createChannel((err: any, ch: any) => {
+
+    if (!err == null) bail(err);
+
+    ch.assertQueue("OdgovorQueue");
+    ch.consume("OdgovorQueue", (msg: any) => {
+      if (msg) {
+        replyResponse(conn, msg.content.toString());
+      }
+    });
+  });
+}
+
+function replyResponse(conn: any, msg: string) {
+  conn.createChannel((err: any, ch: any) => {
+    if (!err == null) bail(err);
+    let response = JSON.parse(msg);
+    let queueForResponse = response.listeningQueue;
+    ch.assertQueue(queueForResponse);
+    ch.sendToQueue(queueForResponse, new Buffer(msg));
+  });
+}
+
+function receiveOcena(conn: any) {
+
+  conn.createChannel((err: any, ch: any) => {
+
+    if (!err == null) bail(err);
+
+    ch.assertQueue("OcenaQueue");
+    ch.consume("OcenaQueue", (msg: any) => {
+      if (msg) {
+       //replyResponse(conn, msg.content.toString());
+       //upisi u bazu
+      }
+    });
   });
 }
 const queueExist = (conn: any) => { };
