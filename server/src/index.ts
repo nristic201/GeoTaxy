@@ -1,8 +1,9 @@
 import "reflect-metadata";
 import express from "express";
-import { createConnection, getManager, getCustomRepository } from "typeorm";
+import { createConnection, getManager, getCustomRepository, Any } from "typeorm";
 import { amqp_url } from "../helpers";
 import { Taksista } from "./entiteti/Taksista";
+import { Voznja } from "./entiteti/Voznja";
 
 let app = express();
 var bodyParser = require('body-parser')
@@ -46,6 +47,10 @@ createConnection(db).then(conn => {
         if (err) bail(err);
         console.log('amqp pokrenut...');
 
+        receiveCoords(conn);
+        receiveRequests(conn);
+        receiveResponse(conn);
+        receiveOcena(conn);
       }
     );
 
@@ -69,6 +74,7 @@ function receiveCoords(conn: any) {
     });
   });
 }
+
 function replyReceivingCorrds(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
     if (!err == null) bail(err);
@@ -89,21 +95,15 @@ function receiveRequests(conn: any) {
   });
 }
 
-//-----------------------------------------------------------
 function replyRequests(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
     if (!err == null) bail(err);
-    //username:zahtev
     let request = JSON.parse(msg);
     let taxiUsername = request.usernameTaksiste;
     ch.assertQueue(taxiUsername + ":zahtev");
     ch.sendToQueue(taxiUsername + ":zahtev", new Buffer(msg));
   });
 }
-
-//-----------------
-//ne mora da se zove odgovor username nego samo OdgovorQueue
-//-----------------
 
 function receiveResponse(conn: any) {
   conn.createChannel((err: any, ch: any) => {
@@ -113,6 +113,7 @@ function receiveResponse(conn: any) {
     ch.assertQueue("OdgovorQueue");
     ch.consume("OdgovorQueue", (msg: any) => {
       if (msg) {
+        console.log(msg);
         replyResponse(conn, msg.content.toString());
       }
     });
@@ -129,6 +130,30 @@ function replyResponse(conn: any, msg: string) {
   });
 }
 
+function receiveEndRide(conn:any) {
+  conn.createChannel((err: any, ch: any) => {
+
+    if (!err == null) bail(err);
+
+    ch.assertQueue("KrajVoznjeQueue");
+    ch.consume("KrajVoznjeQueue", (msg: any) => {
+      if (msg) {
+        replyEndRide(conn, msg);
+      }
+    });
+  }); 
+}
+
+function replyEndRide(conn: any, msg: string) {
+  conn.createChannel((err: any, ch: any) => {
+    if (!err == null) bail(err);
+    let endRide = JSON.parse(msg);
+    let queueForResponse = endRide.queueForResponse;
+    ch.assertQueue(queueForResponse);
+    ch.sendToQueue(queueForResponse, new Buffer(msg));
+  });
+}
+
 function receiveOcena(conn: any) {
 
   conn.createChannel((err: any, ch: any) => {
@@ -138,7 +163,6 @@ function receiveOcena(conn: any) {
     ch.assertQueue("OcenaQueue");
     ch.consume("OcenaQueue", (msg: any) => {
       if (msg) {
-       //replyResponse(conn, msg.content.toString());
        //upisi u bazu
       }
     });
