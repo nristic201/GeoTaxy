@@ -19,7 +19,7 @@ const db = require("../src/modules/ormconfig");
 createConnection(db).then(conn => {
   app.post("/login", (req, res) => {
 
-    console.log("asd");
+    console.log(req.body);
     let username = req.body.username;
     let password = req.body.password;
 
@@ -27,7 +27,7 @@ createConnection(db).then(conn => {
       username: username
     }).then(user => {
 
-      console.log(user);
+      console.log(user[0]);
       if (user[0].password === password) {
         res.json(user[0]);
       } else {
@@ -51,6 +51,7 @@ createConnection(db).then(conn => {
         receiveRequests(conn);
         receiveResponse(conn);
         receiveOcena(conn);
+        receiveEndRide(conn);
       }
     );
 
@@ -69,6 +70,7 @@ function receiveCoords(conn: any) {
     ch.assertQueue("KoordinateTaksista");
     ch.consume("KoordinateTaksista", (msg: any) => {
       if (msg) {
+        console.log(msg);
         replyReceivingCorrds(conn, msg.content.toString());
       }
     });
@@ -78,6 +80,7 @@ function receiveCoords(conn: any) {
 function replyReceivingCorrds(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
     if (!err == null) bail(err);
+    console.log(msg, "2");
     ch.assertExchange("amq.fanout", "fanout", { durable: true });
     ch.publish("amq.fanout", "", new Buffer(msg));
   });
@@ -138,7 +141,7 @@ function receiveEndRide(conn:any) {
     ch.assertQueue("KrajVoznjeQueue");
     ch.consume("KrajVoznjeQueue", (msg: any) => {
       if (msg) {
-        replyEndRide(conn, msg);
+        replyEndRide(conn, msg.content.toString());
       }
     });
   }); 
@@ -148,7 +151,7 @@ function replyEndRide(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
     if (!err == null) bail(err);
     let endRide = JSON.parse(msg);
-    let queueForResponse = endRide.queueForResponse;
+    let queueForResponse = endRide.queueForResponse + "1";
     ch.assertQueue(queueForResponse);
     ch.sendToQueue(queueForResponse, new Buffer(msg));
   });
