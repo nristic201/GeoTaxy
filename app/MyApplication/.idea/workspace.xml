@@ -32,129 +32,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivityTaxi.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivityTaxi.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1300">
-              <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+            <state relative-caret-position="451">
+              <caret line="340" column="68" lean-forward="false" selection-start-line="340" selection-start-column="68" selection-end-line="340" selection-end-column="68" />
               <folding>
-                <element signature="e#3551#4181#0" expanded="true" />
-                <element signature="e#4180#4181#0" expanded="true" />
+                <element signature="e#7750#9316#0" expanded="true" />
+                <element signature="e#9315#9316#0" expanded="true" />
+                <element signature="method#getPermissions#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#addTaxisToMap#0;class#MainActivityTaxi#0" expanded="false" />
-                <element signature="method#SubscribeToFanoutExchange#0;class#MainActivityTaxi#0" expanded="false" />
+                <element signature="method#PushToRespondQueue#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#PushToInternalQueue#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#ReceiveRequests#0;class#MainActivityTaxi#0" expanded="false" />
+                <element signature="method#SendStartRide#0;class#MainActivityTaxi#0" expanded="false" />
+                <element signature="method#SendEndRide#0;class#MainActivityTaxi#0" expanded="false" />
+                <element signature="method#SendResponse#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#SendMessage#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#CheckLocationParams#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#onMapReady#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#initMap#0;class#MainActivityTaxi#0" expanded="false" />
-                <element signature="method#getLocationPermission#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#onRequestPermissionsResult#0;class#MainActivityTaxi#0" expanded="false" />
                 <element signature="method#setupConnectionFactory#0;class#MainActivityTaxi#0" expanded="false" />
+                <element signature="method#applyReply#0;class#MainActivityTaxi#0" expanded="false" />
+                <marker date="1547475015807" expanded="false" signature="14018:14064" ph="() → {" />
+                <marker date="1547475015807" expanded="false" signature="15286:15301" ph="}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EndRide.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/EndRide.java">
+      <file leaf-file-name="LocationRequest.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-location-16.0.0.aar/a888487bd57159174812097ac3845d6b/jars/classes.jar!/com/google/android/gms/location/LocationRequest.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-              <folding>
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#421#422#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#570#571#0" expanded="true" />
-                <element signature="e#596#597#0" expanded="true" />
-                <element signature="e#634#635#0" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#694#695#0" expanded="true" />
-                <element signature="e#720#721#0" expanded="true" />
-                <element signature="e#758#759#0" expanded="true" />
-                <element signature="e#788#789#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main_taxi.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_taxi.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            <state relative-caret-position="103">
+              <caret line="35" column="46" lean-forward="false" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaxiReplyDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/TaxiReplyDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaxiDriver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/TaxiDriver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-              <folding>
-                <element signature="e#858#859#0" expanded="false" />
-                <element signature="e#889#890#0" expanded="false" />
-                <element signature="e#937#938#0" expanded="false" />
-                <element signature="e#977#978#0" expanded="false" />
-                <element signature="e#1012#1013#0" expanded="false" />
-                <element signature="e#1043#1044#0" expanded="false" />
-                <element signature="e#1091#1092#0" expanded="false" />
-                <element signature="e#1131#1132#0" expanded="false" />
-                <element signature="e#1161#1162#0" expanded="false" />
-                <element signature="e#1187#1188#0" expanded="false" />
-                <element signature="e#1225#1226#0" expanded="false" />
-                <element signature="e#1255#1256#0" expanded="false" />
-                <element signature="e#1295#1296#0" expanded="false" />
-                <element signature="e#1331#1332#0" expanded="false" />
-                <element signature="e#1389#1390#0" expanded="false" />
-                <element signature="e#1439#1440#0" expanded="false" />
-                <element signature="e#1480#1481#0" expanded="false" />
-                <element signature="e#1517#1518#0" expanded="false" />
-                <element signature="e#1577#1578#0" expanded="false" />
-                <element signature="e#1629#1630#0" expanded="false" />
-                <element signature="e#1664#1665#0" expanded="false" />
-                <element signature="e#1694#1695#0" expanded="false" />
-                <element signature="e#1740#1741#0" expanded="false" />
-                <element signature="e#1778#1779#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivityClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivityClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="125" column="79" lean-forward="false" selection-start-line="125" selection-start-column="79" selection-end-line="125" selection-end-column="79" />
+            <state relative-caret-position="21">
+              <caret line="414" column="25" lean-forward="false" selection-start-line="414" selection-start-column="25" selection-end-line="414" selection-end-column="25" />
               <folding>
                 <element signature="method#addTaxisToMap#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#parseJSON#0;class#MainActivityClient#0" expanded="false" />
@@ -165,27 +97,12 @@
                 <element signature="method#PublishToRequestQueue#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#SendToOcenaQueue#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#SendToOcenaQueue#1;class#MainActivityClient#0" expanded="false" />
-                <element signature="method#SendToRequestQueue#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#onMapReady#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#getLocationPermission#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#initMap#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#onRequestPermissionsResult#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#setUpMapClick#0;class#MainActivityClient#0" expanded="false" />
-                <element signature="method#onInfoWindowClick#0;class#MainActivityClient#0" expanded="false" />
                 <element signature="method#setupConnectionFactory#0;class#MainActivityClient#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Odgovor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Odgovor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="43" column="27" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="27" />
-              <folding>
-                <element signature="e#901#902#0" expanded="true" />
-                <element signature="e#927#928#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -203,14 +120,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>geta</find>
-      <find>setupc</find>
-      <find>publishtore</find>
-      <find>responseToRequestThread</find>
-      <find>PublishToRequestQueue</find>
-      <find>ListenToResponseQueue</find>
       <find>give</find>
-      <find>sess</find>
       <find>odgov</find>
       <find>odgo</find>
       <find>pushtointe</find>
@@ -223,6 +133,23 @@
       <find>aler</find>
       <find>publishtoreq</find>
       <find>android_id</find>
+      <find>respondToOcenaThread</find>
+      <find>responseToRequestThread</find>
+      <find>endr</find>
+      <find>rseponseToOcena</find>
+      <find>endRideThread</find>
+      <find>Dialo</find>
+      <find>callbac</find>
+      <find>callback</find>
+      <find>requestq</find>
+      <find>endri</find>
+      <find>PushToEndRideQueue</find>
+      <find>idVoznje</find>
+      <find>endRideQueue</find>
+      <find>GiveStars</find>
+      <find>sess</find>
+      <find>getloca</find>
+      <find>location</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -1954,26 +1881,30 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/LoginRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/CheckInternet.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MapResolver.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_client.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Zahtev.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/ClusterMarker.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimen" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MyClusterManagerRenderer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Ocena.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Session.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/TaxiDriver.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/taxi_reply_dialog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/TaxiReplyDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Odgovor.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_taxi.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/EndRide.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_taxi.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/StartRide.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Ocena.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/IdVoznje.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/rating_dialog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/RatingBarDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityClient.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MapResolver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java" />
       </list>
     </option>
   </component>
@@ -1998,6 +1929,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2160,6 +2092,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2180,28 +2113,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyApplication" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2236,26 +2147,14 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyApplication" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
-    <property name="device.picker.selection" value="Android_Accelerated_x86_Oreo" />
+    <property name="device.picker.selection" value="7BKDU17829015148" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TestStaticQueue" />
     <property name="AndroidTargetDevices" value="ZY322PSDB6 7BKDU17829015148" />
   </component>
@@ -2350,7 +2249,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547149909527" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547475150172" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2398,7 +2297,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547149909527" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547475150172" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2546,7 +2445,7 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
@@ -2581,7 +2480,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547149909527" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1547475150172" />
       </method>
     </configuration>
     <list size="1">
@@ -2631,17 +2530,16 @@
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21046771" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07126949" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23830736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973261" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2651,16 +2549,17 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21925133" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33853006" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29955456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1325167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2704,93 +2603,35 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java</url>
-          <line>423</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/RatingBarDialog.java</url>
+          <line>48</line>
           <properties />
-          <option name="timeStamp" value="93" />
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java</url>
+          <line>160</line>
+          <properties />
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java</url>
+          <line>333</line>
+          <properties />
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java</url>
+          <line>316</line>
+          <properties />
+          <option name="timeStamp" value="154" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="106" />
+      <option name="time" value="157" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="78" lean-forward="false" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/os/Looper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/app/LoadedApk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/app/ContextImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="406" column="25" lean-forward="false" selection-start-line="406" selection-start-column="25" selection-end-line="406" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/com/android/internal/os/ZygoteInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="844" column="0" lean-forward="false" selection-start-line="844" selection-start-column="0" selection-end-line="844" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <marker date="1546457543415" expanded="true" signature="1698:1711" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/app/ActivityThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="3294" column="0" lean-forward="false" selection-start-line="3294" selection-start-column="0" selection-end-line="3294" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/image_marker.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2874,13 +2715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MapResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="92" column="13" lean-forward="false" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rabbitmq/amqp-client/5.5.1/ee1a22645421127d00b878362f810e32b9ed45fb/amqp-client-5.5.1-sources.jar!/com/rabbitmq/client/impl/ConsumerWorkService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
@@ -2892,13 +2726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="153" column="45" lean-forward="true" selection-start-line="153" selection-start-column="45" selection-end-line="153" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Ocena.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2953,37 +2780,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Session.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
           <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#887#888#0" expanded="false" />
-            <element signature="e#936#937#0" expanded="false" />
-            <element signature="e#1091#1092#0" expanded="false" />
-            <element signature="e#1144#1145#0" expanded="false" />
-            <element signature="e#1389#1390#0" expanded="false" />
-            <element signature="e#1438#1439#0" expanded="false" />
-            <element signature="e#1487#1488#0" expanded="false" />
-            <element signature="e#1542#1543#0" expanded="false" />
-            <element signature="e#1576#1577#0" expanded="false" />
-            <element signature="e#1630#1631#0" expanded="false" />
-            <element signature="e#1665#1666#0" expanded="false" />
-            <element signature="e#1720#1721#0" expanded="false" />
-            <element signature="e#1756#1757#0" expanded="false" />
-            <element signature="e#1814#1815#0" expanded="false" />
-            <element signature="e#1845#1846#0" expanded="false" />
-            <element signature="e#1899#1900#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2994,61 +2794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/os/Looper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="57" column="70" lean-forward="false" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/TaxiDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="e#858#859#0" expanded="false" />
-            <element signature="e#889#890#0" expanded="false" />
-            <element signature="e#937#938#0" expanded="false" />
-            <element signature="e#977#978#0" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1043#1044#0" expanded="false" />
-            <element signature="e#1091#1092#0" expanded="false" />
-            <element signature="e#1131#1132#0" expanded="false" />
-            <element signature="e#1161#1162#0" expanded="false" />
-            <element signature="e#1187#1188#0" expanded="false" />
-            <element signature="e#1225#1226#0" expanded="false" />
-            <element signature="e#1255#1256#0" expanded="false" />
-            <element signature="e#1295#1296#0" expanded="false" />
-            <element signature="e#1331#1332#0" expanded="false" />
-            <element signature="e#1389#1390#0" expanded="false" />
-            <element signature="e#1439#1440#0" expanded="false" />
-            <element signature="e#1480#1481#0" expanded="false" />
-            <element signature="e#1517#1518#0" expanded="false" />
-            <element signature="e#1577#1578#0" expanded="false" />
-            <element signature="e#1629#1630#0" expanded="false" />
-            <element signature="e#1664#1665#0" expanded="false" />
-            <element signature="e#1694#1695#0" expanded="false" />
-            <element signature="e#1740#1741#0" expanded="false" />
-            <element signature="e#1778#1779#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/taxi_reply_dialog.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1491">
-          <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3056,120 +2805,192 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_client.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/taxi_reply_dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Odgovor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="43" column="27" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_taxi.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/StartRide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/EndRide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="41" column="1" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="6915" column="0" lean-forward="false" selection-start-line="6915" selection-start-column="0" selection-end-line="6915" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+        </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="53" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="53" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/IdVoznje.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/rating_dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/TaxiReplyDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="1281">
+          <caret line="69" column="3" lean-forward="false" selection-start-line="69" selection-start-column="3" selection-end-line="78" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Ocena.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2814">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/RatingBarDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Constants.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+        <state relative-caret-position="357">
+          <caret line="3294" column="0" lean-forward="false" selection-start-line="3294" selection-start-column="0" selection-end-line="3294" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_taxi.xml">
-      <provider editor-type-id="android-designer2">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MapResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        <state relative-caret-position="231">
+          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <marker date="1547399849730" expanded="true" signature="1703:1716" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/Odgovor.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="43" column="27" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="27" />
-          <folding>
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/EndRide.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1300">
-          <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
-          <folding>
-            <element signature="e#3551#4181#0" expanded="true" />
-            <element signature="e#4180#4181#0" expanded="true" />
-            <element signature="method#addTaxisToMap#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#SubscribeToFanoutExchange#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#PushToInternalQueue#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#ReceiveRequests#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#SendMessage#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#CheckLocationParams#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#onMapReady#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#initMap#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#getLocationPermission#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MainActivityTaxi#0" expanded="false" />
-            <element signature="method#setupConnectionFactory#0;class#MainActivityTaxi#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="103">
+          <caret line="35" column="46" lean-forward="false" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="125" column="79" lean-forward="false" selection-start-line="125" selection-start-column="79" selection-end-line="125" selection-end-column="79" />
+        <state relative-caret-position="21">
+          <caret line="414" column="25" lean-forward="false" selection-start-line="414" selection-start-column="25" selection-end-line="414" selection-end-column="25" />
           <folding>
             <element signature="method#addTaxisToMap#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#parseJSON#0;class#MainActivityClient#0" expanded="false" />
@@ -3180,14 +3001,56 @@
             <element signature="method#PublishToRequestQueue#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#SendToOcenaQueue#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#SendToOcenaQueue#1;class#MainActivityClient#0" expanded="false" />
-            <element signature="method#SendToRequestQueue#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#onMapReady#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#getLocationPermission#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#initMap#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#onRequestPermissionsResult#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#setUpMapClick#0;class#MainActivityClient#0" expanded="false" />
-            <element signature="method#onInfoWindowClick#0;class#MainActivityClient#0" expanded="false" />
             <element signature="method#setupConnectionFactory#0;class#MainActivityClient#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-location-16.0.0.aar/a888487bd57159174812097ac3845d6b/jars/classes.jar!/com/google/android/gms/location/LocationRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/d22c78bf93e769aae5f501cc6cc0b548/jars/classes.jar!/com/google/android/gms/common/api/internal/ListenerHolder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/milica/myapplication/MainActivityTaxi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="340" column="68" lean-forward="false" selection-start-line="340" selection-start-column="68" selection-end-line="340" selection-end-column="68" />
+          <folding>
+            <element signature="e#7750#9316#0" expanded="true" />
+            <element signature="e#9315#9316#0" expanded="true" />
+            <element signature="method#getPermissions#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#addTaxisToMap#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#PushToRespondQueue#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#PushToInternalQueue#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#ReceiveRequests#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#SendStartRide#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#SendEndRide#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#SendResponse#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#SendMessage#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#CheckLocationParams#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#onMapReady#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#initMap#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#setupConnectionFactory#0;class#MainActivityTaxi#0" expanded="false" />
+            <element signature="method#applyReply#0;class#MainActivityTaxi#0" expanded="false" />
+            <marker date="1547475015807" expanded="false" signature="14018:14064" ph="() → {" />
+            <marker date="1547475015807" expanded="false" signature="15286:15301" ph="}" />
           </folding>
         </state>
       </provider>

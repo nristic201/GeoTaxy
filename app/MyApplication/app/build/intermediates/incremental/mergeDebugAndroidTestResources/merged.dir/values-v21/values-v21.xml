@@ -223,6 +223,14 @@
     <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="android:Widget.Material.TextView.SpinnerItem"/>
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget.Material.Toolbar.Button.Navigation">
     </style>
+    <style name="Permissions.TransparentTheme" parent="@android:style/Theme.Material.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
     <style name="Platform.AppCompat" parent="Platform.V21.AppCompat"/>
     <style name="Platform.AppCompat.Light" parent="Platform.V21.AppCompat.Light"/>
     <style name="Platform.ThemeOverlay.AppCompat" parent="">

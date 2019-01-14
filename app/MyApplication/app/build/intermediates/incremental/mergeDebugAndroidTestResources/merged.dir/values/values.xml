@@ -1771,6 +1771,7 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="Permissions.TransparentTheme" parent="android:Theme.Light"/>
     <style name="Platform.AppCompat" parent="android:Theme.Holo">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>

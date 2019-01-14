@@ -52,7 +52,7 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeoutException;
 
-public class MainActivityClient extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class MainActivityClient extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, RatingBarDialog.RatingDialogListener {
 
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -76,6 +76,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
     private Thread requestQueueThread;
     private Thread respondToOcenaThread;
     private Zahtev zahtev;
+    private IdVoznje idVoznje;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,6 +96,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
         @SuppressLint("HandlerLeak") final Handler fanoutMessageHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
+
                 String message = msg.getData().getString("fanout");
 
                 parseJSON(message);
@@ -119,13 +121,15 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
                 String message = msg.getData().getString("rseponseToOcena");
                 Gson gson = new Gson();
-                EndRide endRide = gson.fromJson(message, EndRide.class);
-                //-------------------------------------------------------
-                GiveStars(4, endRide.getUsername());
-                //-------------------------------------------------------
-                //---------------------------------SALJE SE VOZNJA, NE TAKSISTA
+
+                idVoznje = gson.fromJson(message, IdVoznje.class);
+
+
+                RatingBarDialog ratingBarDialog = new RatingBarDialog();
+                ratingBarDialog.show(getSupportFragmentManager(),  "Rating reply dialog");
             }
         };
+//[{"ime":"Milica","koordinateLat":"43.3329682","koordinateLong":"21.8932287","password":"0000","prezime":"Martinovic","username":"comi"}]
 
         setupConnectionFactory(Constants.hostName);
 
@@ -200,7 +204,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
         subscribeThread = new Thread(new Runnable() {
             @Override
             public void run() {
-          //      while(true) {
+
                     try {
                         Connection connection = factory.newConnection();
                         Channel channel = connection.createChannel();
@@ -231,8 +235,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-             //   }
-            }
+               }
+
         });
 
         subscribeThread.start();
@@ -247,7 +251,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                     Connection connection = factory.newConnection();
                     Channel channel = connection.createChannel();
 
-                    AMQP.Queue.DeclareOk q = channel.queueDeclare(android_id, true,
+                    AMQP.Queue.DeclareOk q = channel.queueDeclare(android_id + "1", true,
                             false, false, null);
 
                     Consumer consumer = new DefaultConsumer(channel) {
@@ -339,12 +343,12 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-    private void GiveStars(int ocena, String un) {
+    private void GiveStars(float ocena) {
 
         Ocena o = new Ocena();
-        o.setOcena(Integer.toString(ocena));
-        o.setUsername(un);
-        SendToOcenaQueue(o);//---------------------------------------------------------------------
+        o.setOcena(Float.toString(ocena));
+        o.setIdVoznje(idVoznje.getId_voznje());
+        SendToOcenaQueue(o);
     }
 
     private void SendToOcenaQueue() {
@@ -590,6 +594,10 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
         {
             e.printStackTrace();
         }
+    }
+    @Override
+    public void applyReply(String reply) {
+        GiveStars(Float.parseFloat(reply));
     }
 }
 

@@ -7,7 +7,15 @@ package com.example.milica.myapplication;
 public class Ocena {
 
     private String ocena;
-    private String username;
+    private int idVoznje;
+
+    public int getIdVoznje() {
+        return this.idVoznje;
+    }
+
+    public void setIdVoznje(int idVoznje) {
+        this.idVoznje = idVoznje;
+    }
 
     public String getOcena() {
         return ocena;
@@ -15,14 +23,6 @@ public class Ocena {
 
     public void setOcena(String ocena) {
         this.ocena = ocena;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
 }

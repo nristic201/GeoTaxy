@@ -32,5 +32,8 @@ dependencies {
     compile 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     compile 'com.google.maps.android:android-maps-utils:0.5+'
+    compile 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+
 
 }

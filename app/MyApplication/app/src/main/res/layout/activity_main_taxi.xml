@@ -13,6 +13,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnKrajVoznje"
         android:text="KRAJ VOZNJE"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPocetakVoznje"
+        android:text="POCETAK VOZNJE"/>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"

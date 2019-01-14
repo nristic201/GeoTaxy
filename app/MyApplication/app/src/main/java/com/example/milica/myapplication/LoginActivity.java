@@ -31,12 +31,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private static String LOGIN_URL = "http://192.168.56.52:3000/login";
+//10.66.20.143
+    //http://18.222.78.138:3000/login rista
+    private static String LOGIN_URL = "http://10.14.22.90:3000/login";
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private Session session;
-
+//45831
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

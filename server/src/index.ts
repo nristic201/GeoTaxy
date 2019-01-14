@@ -37,7 +37,27 @@ const db_conn = createConnection(db).then(db_conn => {
         });
       }
     });
-  })
+  });
+
+  app.get("/profile", (req, res) => {
+    let username = req.query.username;
+    db_conn.getRepository(Taksista).find({ relations: ["firma", "lista_voznji"], where: { username: username}})
+    .then(result => {
+    if(result) {
+      let user = result[0] as Taksista;
+      let voznje = user.lista_voznji;
+      let sum = 0;
+      voznje.forEach(voznja => {
+        sum += voznja.ocena;
+      });
+      let ocena = sum/voznje.length;
+    //  user.ocena = ocena;
+     // db_conn.getRepository(Taksista).save(user);
+
+      res.json(user);
+    }
+  });
+  });
 
   app.listen(3000, () => {
     console.log("express pokrenut...");
@@ -145,7 +165,7 @@ function receiveEndRide(conn:any, db_conn:any) {
     ch.consume("KrajVoznjeQueue", (msg: any) => {
       if (msg) {
 
-        let endRide = JSON.parse(msg);
+        let endRide = JSON.parse(msg.content.toString());
         let v;
         db_conn.getRepository(Taksista).findOne({username: endRide.username})
         .then(async (taksista:any) => {
@@ -156,9 +176,11 @@ function receiveEndRide(conn:any, db_conn:any) {
               v.lokacija_do_lat = endRide.lat;
               v.lokacija_do_lon = endRide.lon;
               v.u_toku = 0;
-              db_conn.getRepository(Voznja).save(v);
-
-              replyEndRide(conn, msg.content.toString(), v);
+              db_conn.getRepository(Voznja).save(v).then((res:any) => {
+                
+                  console.log(v);
+                  replyEndRide(conn, msg.content.toString(), v);
+              });
           }); 
         }).catch((err:any) => console.log(err));
       }
@@ -173,7 +195,7 @@ function replyEndRide(conn: any, msg: string, v:Voznja) {
     if (!err == null) bail(err);
 
     let endRide = JSON.parse(msg);
-    let voznja = {"id": v.id };
+    let voznja = {"id_voznje": v.id };
     let queueForResponse = endRide.queueForResponse + "1";
 
     ch.assertQueue(queueForResponse);
@@ -235,4 +257,5 @@ function receiveOcena(conn: any, db_conn: any) {
     }, {noAck: true});
   });
 }
+
 const queueExist = (conn: any) => { };

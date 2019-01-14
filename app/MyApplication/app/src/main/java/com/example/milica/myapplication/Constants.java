@@ -15,5 +15,6 @@ public class Constants {
     public static String QUEUE_OCENA = "OcenaQueue";
     public static String QUEUE_KRAJ_VOZNJE = "KrajVoznjeQueue";
     public static String QUEUE_ODGOVOR = "OdgovorQueue";
+    public static String QUEUE_POCETAK_VOZNJE = "PocetakVoznjeQueue";
 
 }
