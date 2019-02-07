@@ -1,4 +1,4 @@
 /node_modules
-/app
-/Architecture
-/Dokumentacija
+app/
+Architecture/
+Dokumentacija/
