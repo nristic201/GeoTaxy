@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Milica\\AndroidStudioProjects\\MyApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kk\\values-kk.xml",
+            "outputFile": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kk\\values-kk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Milica\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0855d4d5d589c0e99f488594791113dc\\res\\values-kk\\values-kk.xml",
+                    "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\a9f633776bd13b4cfa15dd8fe8f482a0\\res\\values-kk\\values-kk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "4656",
+                        "endColumns": "100",
+                        "endOffsets": "4752"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\values-kk\\values-kk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Milica\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\d22c78bf93e769aae5f501cc6cc0b548\\res\\values-kk\\values.xml",
+                    "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\values-kk\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Milica\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\899d46ba60b603b4d2785cf255f0b618\\res\\values-kk\\values.xml",
+                    "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\27e3025e80ce6d712999f5460fc10a4b\\res\\values-kk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -52,23 +69,6 @@
                         "startOffsets": "3013",
                         "endColumns": "222",
                         "endOffsets": "3231"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Milica\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\0f0c76aad98af19da7ccddb13facffba\\res\\values-kk\\values-kk.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4656",
-                        "endColumns": "100",
-                        "endOffsets": "4752"
                     }
                 }
             ]

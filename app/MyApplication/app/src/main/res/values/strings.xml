@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Geo Taxi</string>
     <string name="google_maps_api_key">AIzaSyAZlyE8aYgysOKMoTYV90aH7jF9_muWLMc</string>
 </resources>

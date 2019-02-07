@@ -11,21 +11,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type your username"
-        android:id="@+id/etUsername"/>
+        android:id="@+id/etUsernamee"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type yout password"
-        android:id="@+id/etPassword"/>
+        android:id="@+id/etPasswordd"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLoginn"
         android:text="LOGIN"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnProceed"
+        android:id="@+id/btnProceedd"
         android:text="PROCEED"/>
 
 
