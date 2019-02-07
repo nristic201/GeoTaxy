@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import express from "express";
 import { createConnection, getManager, getCustomRepository } from "typeorm";
-import { amqp_url } from "../helpers";
+import { amqp_url } from './helpers'
 import { Taksista } from "./entiteti/Taksista";
 
 let app = express();
@@ -20,7 +20,7 @@ app.use("/", (req,res) => {
     }
   });
 });
-app.listen(3000, () => {
+app.listen(3000, '18.222.213.247', () => {
   console.log("express pokrenut...");
   require("amqplib/callback_api").connect(
     amqp_url,
@@ -57,3 +57,7 @@ function replyReceivingCorrds(conn: any, msg: string) {
   });
 }
 const queueExist = (conn: any) => {};
+
+process.on('uncaughtException', function (err) {
+  console.error(err);
+ });
