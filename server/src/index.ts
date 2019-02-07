@@ -20,7 +20,7 @@ app.use("/", (req,res) => {
     }
   });
 });
-app.listen(3000, '18.222.213.247', () => {
+app.listen(3000, () => {
   console.log("express pokrenut...");
   require("amqplib/callback_api").connect(
     amqp_url,
