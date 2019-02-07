@@ -45,9 +45,19 @@ export class Taksista {
         this.password = value;
     }
 
-    @ManyToOne(type => Firma, firma => firma.lista_vozaca,{ onDelete: 'CASCADE' })
+    @ManyToOne(type => Firma, firma => firma.lista_vozaca,{ onDelete: 'CASCADE'})
     @JoinColumn({ name: "id_firme" })
     firma!: Firma;
+
+    @Column()
+    ocena: number
+    get Ocena(): number {
+        return this.ocena;
+    }
+    set Ocena(value: number) {
+        this.ocena = value;
+    }
+
 
     @OneToMany(type => Voznja, voznja => voznja.vozac)
     lista_voznji!: Voznja[]
@@ -57,10 +67,12 @@ export class Taksista {
         prezime:string,
         username:string,
         password:string,
+        ocena:number
     ){
         this.ime=ime;
         this.prezime=prezime;
         this.username=username;
         this.password=password;
+        this.ocena = ocena;
     }
 }

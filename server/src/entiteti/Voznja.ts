@@ -8,10 +8,16 @@ export class Voznja {
     id!:number
 
     @Column()
-    lokacija_od:string
+    lokacija_od_lat:string
+    
+    @Column()
+    lokacija_od_lon:string
 
     @Column()
-    lokacija_do:string
+    lokacija_do_lat:string
+
+    @Column()
+    lokacija_do_lon:string
 
     @Column()
     ocena:number
@@ -34,14 +40,18 @@ export class Voznja {
     }
 
     constructor(
-        lokacija_od:string,
-        lokacija_do:string,
+        lokacija_od_lat:string,
+        lokacija_od_lon:string,
+        lokacija_do_lat:string,
+        lokacija_do_lon:string,
         ocena:number,
         u_toku:number,
         datum:Date
     ){
-        this.lokacija_do=lokacija_do;
-        this.lokacija_od=lokacija_od;
+        this.lokacija_do_lat=lokacija_do_lat;
+        this.lokacija_do_lon=lokacija_do_lon;
+        this.lokacija_od_lat=lokacija_od_lat;
+        this.lokacija_od_lon=lokacija_od_lon;
         this.ocena=ocena;
         this.u_toku=u_toku;
         this.datum=datum;
