@@ -1,5 +1,5 @@
 import { Taksista } from "./Taksista";
-import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('voznja')
 export class Voznja {

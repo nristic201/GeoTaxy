@@ -1,7 +1,6 @@
 import { Firma } from "./Firma";
 import { Voznja } from "./Voznja";
-import { Entity, PrimaryColumn, Column, ManyToOne, OneToMany, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
-import { type } from "os";
+import { Entity, Column, ManyToOne, OneToMany, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('taksista')
 export class Taksista {

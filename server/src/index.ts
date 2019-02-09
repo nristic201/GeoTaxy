@@ -1,17 +1,9 @@
 import "reflect-metadata";
-import express from "express";
-import {
-  createConnection,
-  getManager,
-  getCustomRepository,
-  Any,
-  Connection
-} from "typeorm";
+import * as express from "express";
+import { createConnection } from "typeorm";
 import { amqp_url } from "./assets/helpers";
 import { Taksista } from "./entiteti/Taksista";
 import { Voznja } from "./entiteti/Voznja";
-import { connect } from "tls";
-
 let app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json()); // to support JSON-encoded bodies
@@ -22,17 +14,16 @@ app.use(
   })
 );
 app.use(express.json()); // to support JSON-encoded bodies
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:true}));
 
-const db = require("../src/modules/ormconfig");
 
-const db_conn = createConnection(db)
+createConnection()
   .then(db_conn => {
-    app.post("/login", (req, res) => {
+    app.post("/login", (req: any, res: any) => {
       let username = req.body.username;
       let password = req.body.password;
 
-      let t1 = db_conn
+      db_conn
         .getRepository(Taksista)
         .find({
           username: username
@@ -47,10 +38,10 @@ const db_conn = createConnection(db)
           }
         });
     });
-    app.get('/',(req,res )=>{
-      res.json({"msg":"..."});
-    })
-    app.get("/profile", (req, res) => {
+    app.get("/", (req, res) => {
+      res.json({ msg: "..." });
+    });
+    app.get("/profile", (req:any, res:any) => {
       let username = req.query.username;
       db_conn
         .getRepository(Taksista)
@@ -61,12 +52,12 @@ const db_conn = createConnection(db)
         .then(result => {
           if (result) {
             let user = result[0] as Taksista;
-            let voznje = user.lista_voznji;
-            let sum = 0;
-            voznje.forEach(voznja => {
-              sum += voznja.ocena;
-            });
-            let ocena = sum / voznje.length;
+            // let voznje = user.lista_voznji;
+            // let sum:number = 0;
+            // voznje.forEach(voznja => {
+            //   sum += voznja.ocena;
+            // });
+            //let ocena = sum / voznje.length;
             //  user.ocena = ocena;
             // db_conn.getRepository(Taksista).save(user);
 
@@ -188,12 +179,12 @@ function receiveEndRide(conn: any, db_conn: any) {
       (msg: any) => {
         if (msg) {
           let endRide = JSON.parse(msg.content.toString());
-          let v;
           db_conn
             .getRepository(Taksista)
             .findOne({ username: endRide.username })
             .then((taksista: any) => {
-              let taksista_id = (taksista as Taksista).id;
+              //let taksista_id:number = (taksista as Taksista).id;
+              let v: Voznja;
               db_conn
                 .getRepository(Voznja)
                 .findOne({ vozac: taksista as Taksista, u_toku: 1 })
@@ -295,8 +286,8 @@ function receiveOcena(conn: any, db_conn: any) {
   });
 }
 
-const queueExist = (conn: any) => {};
+//const queueExist = (conn: any) => {};
 
-process.on('uncaughtException', function (err) {
+process.on("uncaughtException", function(err) {
   console.error(err);
 });

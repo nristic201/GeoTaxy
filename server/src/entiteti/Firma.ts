@@ -1,7 +1,5 @@
-import { Entity, PrimaryColumn, Column, OneToMany, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Entity,  Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Taksista } from "./Taksista";
-
-
 @Entity('firma')
 export class Firma {
   

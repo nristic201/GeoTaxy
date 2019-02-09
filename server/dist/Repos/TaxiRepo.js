@@ -1,4 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6,15 +19,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const typeorm_1 = require("typeorm");
-const Taksista_1 = require("../entiteti/Taksista");
-let TaksistaRepository = class TaksistaRepository extends typeorm_1.Repository {
-    findByName(ime, prezime) {
-        return this.findOne({ ime, prezime });
+var typeorm_1 = require("typeorm");
+var Taksista_1 = require("../entiteti/Taksista");
+var TaksistaRepository = /** @class */ (function (_super) {
+    __extends(TaksistaRepository, _super);
+    function TaksistaRepository() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-};
-TaksistaRepository = __decorate([
-    typeorm_1.EntityRepository(Taksista_1.Taksista)
-], TaksistaRepository);
+    TaksistaRepository.prototype.findByName = function (ime, prezime) {
+        return this.findOne({ ime: ime, prezime: prezime });
+    };
+    TaksistaRepository = __decorate([
+        typeorm_1.EntityRepository(Taksista_1.Taksista)
+    ], TaksistaRepository);
+    return TaksistaRepository;
+}(typeorm_1.Repository));
 exports.TaksistaRepository = TaksistaRepository;
 //# sourceMappingURL=TaxiRepo.js.map
