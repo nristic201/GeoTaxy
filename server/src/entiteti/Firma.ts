@@ -6,7 +6,7 @@ import { Taksista } from "./Taksista";
 export class Firma {
   
   @PrimaryGeneratedColumn({ type: 'integer' })
-  id!: number;
+  id! :number;
 
   @Column({ type: 'varchar' })
   naziv: string;

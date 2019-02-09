@@ -5,32 +5,32 @@ import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, PrimaryGeneratedC
 export class Voznja {
 
     @PrimaryGeneratedColumn()
-    id!:number
+    id!:number;
 
     @Column()
-    lokacija_od_lat:string
+    lokacija_od_lat:string;
     
     @Column()
-    lokacija_od_lon:string
+    lokacija_od_lon:string;
 
     @Column()
-    lokacija_do_lat:string
+    lokacija_do_lat:string;
 
     @Column()
     lokacija_do_lon:string
 
     @Column()
-    ocena:number
+    ocena:number;
 
     @Column()
-    u_toku:number
+    u_toku:number;
 
     @Column()
     datum:Date;
 
     @ManyToOne(type=>Taksista, taxi=>taxi.lista_voznji,{ onDelete: 'CASCADE' })
     @JoinColumn({name:'id_taksiste'})
-    vozac!:Taksista
+    vozac!:Taksista;
 
     get Vozac(): Taksista {
         return this.vozac;
