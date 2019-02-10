@@ -24,7 +24,7 @@ class DBService {
         Taksista, Firma, Voznja
       ]
     });
-    console.log('konekcija sa bazon ...')
+    console.log('konekcija sa bazom ...')
     return this.connection;
   }
 }

@@ -1,6 +1,6 @@
-export const amqp_url ="amqp://yfidhcfx:D_3FHXHAUckbirmes_ZKCqICb3lFYL2V@bee.rmq.cloudamqp.com/yfidhcfx"
-
-export const db_conf= {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.db_conf = {
     "type": "mysql",
     "host": "aips.czbjdoxncuy5.us-east-2.rds.amazonaws.com",
     "port": 3306,
@@ -9,3 +9,4 @@ export const db_conf= {
     "password": "7sims000",
     "logging": false
 };
+//# sourceMappingURL=ormconfig.js.map

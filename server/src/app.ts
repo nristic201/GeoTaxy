@@ -1,17 +1,17 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { apiRoute } from './controllers/routes';
-import DBService from './services/db.service';
+import AMQPService from './services/amqp';
+import Broker from './controllers/broker';
 
 class App {
     public app: express.Application;
     public port: any;
-    public db_service= new DBService()
-
-    constructor(
-        port: any,
-    ) {
-        
+    public amqp_service = new AMQPService();
+    public broker: Broker;
+    public amqpService:AMQPService;
+    constructor(port: any, ) {
+        this.amqpService=new AMQPService();
         this.app = express();
         this.port = port;
         this.config();
@@ -23,6 +23,10 @@ class App {
         this.app.use(apiRoute);
         this.app.listen(this.port, () => {
             console.log("express pokrenut... port 3k");
+            this.amqp_service.getAMQPConnection().then((conn:any)=>{
+                this.broker=new Broker(conn);
+                this.broker.start();
+            });
         });
     }
 }
