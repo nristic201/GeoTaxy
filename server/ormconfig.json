@@ -7,11 +7,9 @@
     "password": "7sims000",
     "logging": false,
     "entities": [
-      "dist/entiteti/*.js"
+      "dist/entities/*.js"
    ],
    "cli": {
-      "entitiesDir": "src/entiteti",
-      "migrationsDir": "src/migration",
-      "subscribersDir": "src/subscriber"
+      "entitiesDir": "src/entities"
    }
 }
