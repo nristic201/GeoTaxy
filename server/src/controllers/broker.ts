@@ -15,7 +15,7 @@ class Broker {
         this.receiveRequests();
         this.receiveResponse();
         this.receiveStartRide();
-        //this.receiveOcena();
+        this.receiveOcena();
         this.receiveEndRide();
     }
     receiveCords() {
@@ -83,7 +83,6 @@ class Broker {
 
     replyResponse(msg: string) {
         this.conn.createChannel((err: any, ch: any) => {
-
             let response = JSON.parse(msg);
             let queueForResponse = response.listeningQueue;
             ch.assertQueue(queueForResponse);
@@ -167,28 +166,27 @@ class Broker {
             );
         });
     }
-    // receiveOcena() {
-    //     this.conn.createChannel((err: any, ch: any) => {
-    //         ch.assertQueue("OcenaQueue");
-    //         ch.consume(
-    //             "OcenaQueue",
-    //             (msg: any) => {
-    //                 if (msg) {
-    //                     let ocena = JSON.parse(msg.content.toString());
-    //                     db_conn
-    //                         .getRepository(Voznja)
-    //                         .findOne({ id: ocena.idVoznje })
-    //                         .then((res: any) => {
-    //                             let voznja = res as Voznja;
-    //                             voznja.ocena = ocena.ocena;
-    //                             db_conn.getRepository(Voznja).save(voznja);
-    //                         });
-    //                 }
-    //             },
-    //             { noAck: true }
-    //         );
-    //     });
-    // }
+    receiveOcena() {
+        this.conn.createChannel((err: any, ch: any) => {
+            ch.assertQueue("OcenaQueue");
+            ch.consume(
+                "OcenaQueue",
+                (msg: any) => {
+                    if (msg) {
+                        let rideRepo = getCustomRepository(RideRepository);
+                        let ocena = JSON.parse(msg.content.toString());
+                        rideRepo.findRideByID(ocena.id)
+                            .then((res: any) => {
+                                let voznja = res as Voznja;
+                                voznja.ocena = ocena.ocena;
+                                rideRepo.save(voznja);
+                            });
+                    }
+                },
+                { noAck: true }
+            );
+        });
+    }
 }
 
 export default Broker;

@@ -11,6 +11,9 @@ export class RideRepository extends Repository<Voznja>{
             u_toku:u_toku
         });
     }
+    findRideByID(id:number){
+        return this.findOne({id:id})
+    }
    
 
 }

@@ -15,7 +15,6 @@ class App {
         this.app = express();
         this.port = port;
         this.config();
-
     }
     private config(): void {
         this.app.use(bodyParser.json());
