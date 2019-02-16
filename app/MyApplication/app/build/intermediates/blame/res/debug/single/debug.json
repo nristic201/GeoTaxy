@@ -16,24 +16,24 @@
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_driver_round.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_cartman_foreground.png.flat",
-        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_cartman_foreground.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_cartman_foreground.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_cartman_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_cheif_new.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-hdpi\\ic_cheif_new.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_vector_test.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_vector_test.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_cheif_new.png.flat",
-        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-hdpi\\ic_cheif_new.png"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_dark.xml.flat",
@@ -96,16 +96,16 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -152,40 +152,40 @@
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foregrounddd.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foregroundd.png.flat",
-        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foregroundd.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_chief_round.xml.flat",
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-anydpi-v26\\chief_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foregroundd.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foregroundd.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_cartman_foreground.png.flat",
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-mdpi\\ic_cartman_foreground.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_image_marker.xml.flat",
-        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-anydpi-v26\\image_marker.xml"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\0053450c419ca193da3077919728fff3\\res\\layout\\notification_template_big_media.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_image_marker.xml.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-anydpi-v26\\image_marker.xml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foregrounddd.png.flat",
@@ -212,12 +212,12 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\43f7f2a75eca67cd6e174c979100cde2\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_chief.png.flat",
@@ -308,12 +308,12 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foregrounddd.png.flat",
-        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foregrounddd.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_chief_foreground.png.flat",
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xhdpi\\chief_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foregrounddd.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foregrounddd.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -344,12 +344,12 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_check_material.xml.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_check_material.xml.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_driver_round.png.flat",
@@ -388,12 +388,12 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\0053450c419ca193da3077919728fff3\\res\\layout\\notification_template_big_media_custom.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_light.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_normal.xml.flat",
@@ -432,32 +432,32 @@
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable\\chief_background.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\a9f633776bd13b4cfa15dd8fe8f482a0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
-    },
-    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\color-v23\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_image_marker.png.flat",
-        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-mdpi\\image_marker.png"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\a9f633776bd13b4cfa15dd8fe8f482a0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\raw_amu_poly_style_boolean_alpha.kml.flat",
-        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\c7efe3a7e275be9f3dc2427749412509\\res\\raw\\amu_poly_style_boolean_alpha.kml"
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_image_marker.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-mdpi\\image_marker.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\raw_amu_nested_multigeometry.kml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\c7efe3a7e275be9f3dc2427749412509\\res\\raw\\amu_nested_multigeometry.kml"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\raw_amu_poly_style_boolean_alpha.kml.flat",
+        "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\c7efe3a7e275be9f3dc2427749412509\\res\\raw\\amu_poly_style_boolean_alpha.kml"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -688,6 +688,10 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\tooltip_frame_light.xml"
     },
     {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_caret.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_caret.png"
+    },
+    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
@@ -738,6 +742,10 @@
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_star.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-hdpi\\ic_star.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
@@ -968,6 +976,10 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\c7efe3a7e275be9f3dc2427749412509\\res\\raw\\amu_poly_style_boolean_numeric.kml"
     },
     {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_caret.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-mdpi\\ic_caret.png"
+    },
+    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_track_material.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_seekbar_track_material.xml"
     },
@@ -1062,6 +1074,14 @@
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\layout_amu_text_bubble.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\android-maps-utils-0.5.aar\\c7efe3a7e275be9f3dc2427749412509\\res\\layout\\amu_text_bubble.xml"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_star.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-xxhdpi\\ic_star.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_star.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_star.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1204,6 +1224,10 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_caret.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-xxhdpi\\ic_caret.png"
+    },
+    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_radio.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\layout\\abc_list_menu_item_radio.xml"
     },
@@ -1258,6 +1282,10 @@
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_multichoice_material.xml.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_caret.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-xhdpi\\ic_caret.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -1400,6 +1428,10 @@
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_caret.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-hdpi\\ic_caret.png"
+    },
+    {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\a9f633776bd13b4cfa15dd8fe8f482a0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
     },
@@ -1454,6 +1486,10 @@
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_star.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-xhdpi\\ic_star.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -1994,6 +2030,10 @@
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\bane\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8962aad8a544acc0fa334b58ed89640a\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_star.png.flat",
+        "source": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\src\\main\\res\\drawable-mdpi\\ic_star.png"
     },
     {
         "merged": "C:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",

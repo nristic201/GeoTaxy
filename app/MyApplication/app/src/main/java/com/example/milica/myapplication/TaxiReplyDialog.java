@@ -9,15 +9,27 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
 
 /**
  * Created by Milica on 10-Jan-19.
  */
 
-public class TaxiReplyDialog extends AppCompatDialogFragment {
+public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapReadyCallback {
 
     private String response;
     private DialogListener listener;
+    private GoogleMap mMap;
+    private LatLng markerLatLng;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -26,6 +38,15 @@ public class TaxiReplyDialog extends AppCompatDialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.taxi_reply_dialog, null);
+
+        try {
+            String args = getArguments().getString("marker");
+            Gson gson = new Gson();
+            markerLatLng = gson.fromJson(args, LatLng.class);
+        }
+        catch (Exception e) {
+            String ex = e.toString();
+        }
 
         builder.setView(view)
         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -64,6 +85,9 @@ public class TaxiReplyDialog extends AppCompatDialogFragment {
             }
         });
 
+        SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_taxi_reply_dialog);
+        mapFragment.getMapAsync(this);
+
         return builder.create();
     }
 
@@ -78,10 +102,26 @@ public class TaxiReplyDialog extends AppCompatDialogFragment {
         }
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        mMap = googleMap;
+        mMap.addMarker(new MarkerOptions().position(markerLatLng).title("Starting point"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerLatLng, 17));
+    }
+
     public interface DialogListener {
 
         void applyReply(String minutes);
     }
 
+    public static TaxiReplyDialog newInstance(String marker) {
 
+        TaxiReplyDialog trd = new TaxiReplyDialog();
+        Bundle bundle = new Bundle();
+        bundle.putString("marker", marker);
+        trd.setArguments(bundle);
+
+        return trd;
+    }
 }

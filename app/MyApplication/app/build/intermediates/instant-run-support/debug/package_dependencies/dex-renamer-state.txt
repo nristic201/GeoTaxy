@@ -1,4 +1,4 @@
-#Mon Jan 14 20:53:22 CET 2019
-base.0=C\:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+#Fri Feb 15 16:34:35 CET 2019
+base.0=C\:\\Users\\bane\\AndroidStudioProjects\\GeoTaxy\\app\\MyApplication\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\48
 path.0=classes.dex
 renamed.0=classes.dex

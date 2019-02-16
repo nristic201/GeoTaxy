@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import com.google.android.gms.maps.LocationSource.OnLocationChangedListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -87,6 +89,11 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationRequest locationRequest;
 
+    private RelativeLayout taxiRideLayout;
+    private Button btnKrajVoznje;
+    private Button btnPocetakVoznje;
+    private boolean voznjaUToku;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,11 +123,14 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
 
 
         getPermissions();
-        //PublishCallback();
-        //final int i = 0;
+        PublishCallback();
+        // int i = 0;
 
-        Button btnKrajVoznje = (Button) findViewById(R.id.btnKrajVoznje);
-        Button btnPocetakVoznje = (Button) findViewById(R.id.btnPocetakVoznje);
+        btnKrajVoznje = findViewById(R.id.button_end_ride);
+        btnPocetakVoznje = findViewById(R.id.button_start_ride);
+        taxiRideLayout = findViewById(R.id.taxi_activity_ride);
+        taxiRideLayout.setVisibility(View.GONE);
+        voznjaUToku = false;
 
         btnPocetakVoznje.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +160,11 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                 Gson gson = new Gson();
                 String msg = gson.toJson(er);
                 PushToEndRideQueue(msg);
+
+                btnPocetakVoznje.setVisibility(View.VISIBLE);
+                voznjaUToku = false;
+                btnKrajVoznje.setVisibility(View.GONE);
+                taxiRideLayout.setVisibility(View.GONE);
             }
         });
 
@@ -158,9 +173,18 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
             public void handleMessage(Message msg) {
                 String message = msg.getData().getString("msg");
 
-                Toast.makeText(getApplicationContext(), Integer.toString(444444), Toast.LENGTH_SHORT).show();
-                parseJSON(message);
-                addTaxisToMap();
+                List<TaxiDriver> taxiDrivers = parseJSON(message);
+                mapResolver.getmMap().clear();
+                for(TaxiDriver taxiDriver : taxiDrivers)
+                    addTaxiToList(taxiDriver);
+
+                for(TaxiDriver taxiDriver : all_taxi_drivers) {
+
+                    double lat = Double.parseDouble(taxiDriver.getKoordinateLat());
+                    double lon = Double.parseDouble(taxiDriver.getKoordinateLong());
+                    LatLng ll = new LatLng(lat, lon);
+                    mapResolver.getmMap().addMarker(new MarkerOptions().position(ll));
+                }
             }
         };
 
@@ -172,7 +196,11 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                 Gson gson = new Gson();
                 receivedRequest = gson.fromJson(message, Zahtev.class);
 
-                TaxiReplyDialog taxiReplyDialog = new TaxiReplyDialog();
+                LatLng latLng = new LatLng(Double.parseDouble(receivedRequest.getMyLatitude())
+                        , Double.parseDouble(receivedRequest.getMyLongitude()));
+                String ll = gson.toJson(latLng);
+
+                TaxiReplyDialog taxiReplyDialog = TaxiReplyDialog.newInstance(ll);
                 taxiReplyDialog.show(getSupportFragmentManager(),  "Taxi reply dialog");
             }
         };
@@ -184,53 +212,53 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
         SendEndRide();
     }
 
-    private void getLocationUpdates() {
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PermissionChecker.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PermissionChecker.PERMISSION_GRANTED) {
-
-            fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
-                @Override
-                public void onLocationResult(LocationResult locationResult) {
-                    super.onLocationResult(locationResult);
-                    Gson gson = new Gson();
-
-
-                    Location loc = mapResolver.getLastKnownLocation();
-                    if(locationResult.getLastLocation().getLongitude() != location.getLongitude() ||
-                            locationResult.getLastLocation().getLatitude() != location.getLatitude()) {
-
-                        double latitude = locationResult.getLastLocation().getLatitude();
-                        double longitude = locationResult.getLastLocation().getLongitude();
-
-                        session.setLatitude(Double.toString(latitude));
-                        session.setLongitude(Double.toString(longitude));
-
-                        TaxiDriver taxiDriver = new TaxiDriver(session.getUser(),
-                                session.getPassword(),
-                                session.getIme(),
-                                Double.toString(latitude),
-                                Double.toString(longitude),
-                                session.getPrezime());
-                        ArrayList<TaxiDriver> lista = new ArrayList<>();
-                        lista.add(taxiDriver);
-
-                        String userGson = gson.toJson(lista);
-                        location = locationResult.getLastLocation();
-
-                        PushToInternalQueue(userGson);
-                    }
-
-
-                }
-            }, getMainLooper());
-        }
-        else {
-            getPermissions();
-        }
-
-    }
+//    private void getLocationUpdates() {
+//        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+//                == PermissionChecker.PERMISSION_GRANTED &&
+//                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+//                        == PermissionChecker.PERMISSION_GRANTED) {
+//
+//            fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
+//                @Override
+//                public void onLocationResult(LocationResult locationResult) {
+//                    super.onLocationResult(locationResult);
+//                    Gson gson = new Gson();
+//
+//
+//                    Location loc = mapResolver.getLastKnownLocation();
+//                    if(locationResult.getLastLocation().getLongitude() != location.getLongitude() ||
+//                            locationResult.getLastLocation().getLatitude() != location.getLatitude()) {
+//
+//                        double latitude = locationResult.getLastLocation().getLatitude();
+//                        double longitude = locationResult.getLastLocation().getLongitude();
+//
+//                        session.setLatitude(Double.toString(latitude));
+//                        session.setLongitude(Double.toString(longitude));
+//
+//                        TaxiDriver taxiDriver = new TaxiDriver(session.getUser(),
+//                                session.getPassword(),
+//                                session.getIme(),
+//                                Double.toString(latitude),
+//                                Double.toString(longitude),
+//                                session.getPrezime());
+//                        ArrayList<TaxiDriver> lista = new ArrayList<>();
+//                        lista.add(taxiDriver);
+//
+//                        String userGson = gson.toJson(lista);
+//                        location = locationResult.getLastLocation();
+//
+//                        PushToInternalQueue(userGson);
+//                    }
+//
+//
+//                }
+//            }, getMainLooper());
+//        }
+//        else {
+//            getPermissions();
+//        }
+//
+//    }
 
     private void getPermissions() {
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
@@ -243,7 +271,7 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
             @Override
             public void onGranted() {
                 // do your task.
-                getLocationUpdates();
+              //  getLocationUpdates();
             }
 
             @Override
@@ -280,31 +308,39 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
         responseToRequestThread.interrupt();
     }
 
-    private void addTaxisToMap() {
+    private void addTaxiToList(TaxiDriver taxiDriver) {
+
+        boolean postoji = false;
 
         for(TaxiDriver driver : all_taxi_drivers) {
 
-            double lat = Double.parseDouble(driver.getKoordinateLat());
-            double lon = Double.parseDouble(driver.getKoordinateLong());
-            LatLng ll = new LatLng(lat, lon);
-            mapResolver.getmMap().addMarker(new MarkerOptions().position(ll));
+            if(driver.getUsername().equals(taxiDriver.getUsername())){
+
+                driver.setKoordinateLat(taxiDriver.getKoordinateLat());
+                driver.setKoordinateLong(taxiDriver.getKoordinateLong());
+                postoji = true;
+                break;
+            }
+        }
+
+        if(!postoji/* && !session.getUser().equals(taxiDriver.getUsername())*/) {
+
+            all_taxi_drivers.add(taxiDriver);
         }
     }
 
-    private void parseJSON(String jsonString) {
+    private List<TaxiDriver> parseJSON(String jsonString) {
 
-        all_taxi_drivers = new ArrayList<>();
         Gson gson = new Gson();
         Type type = new TypeToken<List<TaxiDriver>>(){}.getType();
         List<TaxiDriver> driverList = gson.fromJson(jsonString, type);
-        for (TaxiDriver driver : driverList){
-            all_taxi_drivers.add(driver);
-        }
+        return driverList;
     }
 
     public void SubscribeToFanoutExchange(final Handler handler) {
 
         subscribeThread = new Thread(new Runnable() {
+
             @Override
             public void run() {
                 try
@@ -351,10 +387,11 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                 }
             }
         });
+
         subscribeThread.start();
     }
 
-   /* public void PublishCallback() {
+    public void PublishCallback() {
 
         final Handler handler = new Handler();
         final int delay = 5000; //milliseconds
@@ -365,36 +402,31 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                 Gson gson = new Gson();
 
                 location = mapResolver.getLastKnownLocation();
-                Location loc = mapResolver.getLastKnownLocation();
-                if(loc.getLongitude() != location.getLongitude() ||
-                        loc.getLatitude() != location.getLatitude()) {
 
-                    double latitude = location.getLatitude();
-                    double longitude = location.getLongitude();
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
 
-                    session.setLatitude(Double.toString(latitude));
-                    session.setLongitude(Double.toString(longitude));
+                session.setLatitude(Double.toString(latitude));
+                session.setLongitude(Double.toString(longitude));
 
-                    TaxiDriver taxiDriver = new TaxiDriver(session.getUser(),
-                            session.getPassword(),
-                            session.getIme(),
-                            Double.toString(latitude),
-                            Double.toString(longitude),
-                            session.getPrezime());
-                    ArrayList<TaxiDriver> lista = new ArrayList<>();
-                    lista.add(taxiDriver);
+                TaxiDriver taxiDriver = new TaxiDriver(session.getUser(),
+                        session.getPassword(),
+                        session.getIme(),
+                        Double.toString(latitude),
+                        Double.toString(longitude),
+                        session.getPrezime());
+                ArrayList<TaxiDriver> lista = new ArrayList<>();
+                lista.add(taxiDriver);
 
-                    String userGson = gson.toJson(lista);
+                String userGson = gson.toJson(lista);
 
-                    PushToInternalQueue(userGson);
+                PushToInternalQueue(userGson);
 
-                    handler.postDelayed(this, delay);
-                }
-
+                handler.postDelayed(this, delay);
 
             }
         }, delay);
-    }*/
+    }
 
 
     public void PushToRespondQueue(String str) {
@@ -633,7 +665,7 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
         if (mLocationPermissionsGranted) {
 
             mapResolver.moveCamera(new LatLng(mapResolver.getLastKnownLocation().getLatitude(),
-                    mapResolver.getLastKnownLocation().getLongitude()), 1f);
+                    mapResolver.getLastKnownLocation().getLongitude()), 15);
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
@@ -731,7 +763,11 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
             Gson gson = new Gson();
             String odg = gson.toJson(odgovor);
             PushToRespondQueue(odg);
+
+            taxiRideLayout.setVisibility(View.VISIBLE);
+            btnKrajVoznje.setVisibility(View.GONE);
+            btnPocetakVoznje.setVisibility(View.VISIBLE);
+            voznjaUToku = true;
         }
     }
-
 }

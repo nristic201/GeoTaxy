@@ -7,7 +7,98 @@
     tools:context="com.example.milica.myapplication.LoginActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_weight="1.75">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/client_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_launcher_foregroundd" />
+
+            <Button
+                android:id="@+id/btnProceed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/client_image"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/transparent"
+                android:text="proceed as client . . ."
+                android:textColor="@color/colorButton"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/driver_image"
+                android:src="@mipmap/ic_launcher_foregrounddd"
+                android:layout_centerHorizontal="true"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:hint="username"
+                android:id="@+id/etUsername"
+                android:layout_below="@+id/driver_image"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorButton"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:hint="password"
+                android:id="@+id/etPassword"
+                android:layout_below="@+id/etUsername"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorButton"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLogin"
+                android:text="login as taxi driver . . ."
+                android:textStyle="italic"
+                android:background="@android:color/transparent"
+                android:layout_below="@+id/etPassword"
+                android:textColor="@color/colorButton"
+                android:layout_marginTop="15dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -17,7 +108,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1">
 
             <ImageView
@@ -98,6 +189,6 @@
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 </LinearLayout>

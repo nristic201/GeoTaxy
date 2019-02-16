@@ -1,74 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map_taxi_reply_dialog"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:context="com.example.milica.myapplication.MainActivityClient"
+        android:layout_margin="5dp"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'll be there in "
-        android:textSize="25dp"
-        android:textStyle="bold"/>
+        android:text="I'll be there in:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
         <RadioButton
             android:id="@+id/radioButton1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="1 minute"
-            android:checked="true"/>
+            android:checked="true"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"/>
 
         <RadioButton
             android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="2 minutes"/>
+            android:text="2 minutes"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"/>
 
         <RadioButton
             android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="3 minutes" />
+            android:text="3 minutes"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"/>
 
         <RadioButton
             android:id="@+id/radioButton5"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="5 minutes" />
+            android:text="5 minutes"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"/>
 
         <RadioButton
             android:id="@+id/radioButton10"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="10 minutes" />
+            android:text="10 minutes"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
     </RadioGroup>
-
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="No"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Yes"/>
-
-    </LinearLayout> -->
 
 </LinearLayout>

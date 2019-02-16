@@ -33,7 +33,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 //10.66.20.143
     //http://18.222.78.138:3000/login rista
-    private static String LOGIN_URL = "http://10.14.22.90:3000/login";
+    private static String LOGIN_URL = "http://3.16.109.157:3000/login";
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private Session session;
@@ -108,9 +108,16 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 };
                 requestQueue.add(stringRequest);
-            }
 
+                /*Toast.makeText(getApplicationContext(), "Login succeded", Toast.LENGTH_SHORT).show();
+                session.setLoggedIn(true);
+                session.setUser("comi");
+                session.setIme("Milica");
+                session.setPrezime("Martinovic");
+                session.setPassword("0000");
+                Intent intent = new Intent(getApplicationContext(), MainActivityTaxi.class);
+                startActivity(intent);*/
+            }
     });
     }
 }
-

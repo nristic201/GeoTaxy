@@ -17,10 +17,21 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.HeaderViewListAdapter;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -32,6 +43,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.google.maps.android.clustering.ClusterItem;
 import com.google.maps.android.clustering.ClusterManager;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -40,6 +52,9 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -78,6 +93,21 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
     private Zahtev zahtev;
     private IdVoznje idVoznje;
 
+    private StringRequest stringRequest;
+    private String profileURL = "http://3.16.109.157:3000/profile";
+    private RequestQueue stringRequestQueue;
+
+    private RelativeLayout taxiActivityRide;
+    private TextView ime;
+    private TextView firmaIme;
+    private TextView ocena;
+    private TextView firmaEmail;
+    private TextView firmaTelefon;
+    private ImageButton hideInfo;
+    private Button btnSendRequest;
+
+    private String taxiUsername;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,14 +123,100 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
         getLocationPermission();
 
+        taxiActivityRide = findViewById(R.id.taxi_activity_ride);
+        taxiActivityRide.setVisibility(View.GONE);
+        ime = findViewById(R.id.driver_name);
+        firmaIme = findViewById(R.id.driver_company);
+        firmaIme = findViewById(R.id.driver_company_email);
+        firmaIme = findViewById(R.id.driver_company_telefon);
+        ocena = findViewById(R.id.driver_rating);
+        hideInfo = findViewById(R.id.caret);
+        hideInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                taxiActivityRide.setVisibility(View.GONE);
+            }
+        });
+        btnSendRequest = findViewById(R.id.button_send_request);
+        btnSendRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                zahtev.setQueueNameForResponse(android_id);
+                zahtev.setUsernameTaksiste(taxiUsername);
+
+                PublishToRequestQueue(zahtev);
+            }
+        });
+
+        stringRequestQueue = Volley.newRequestQueue(this);
+
         @SuppressLint("HandlerLeak") final Handler fanoutMessageHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
 
                 String message = msg.getData().getString("fanout");
 
-                parseJSON(message);
-                addTaxisToMap();
+                List<TaxiDriver> taxiDrivers = parseJSON(message);
+                mapResolver.getmMap().clear();
+                for(TaxiDriver taxiDriver : taxiDrivers)
+                    addTaxiToList(taxiDriver);
+
+                if(mapResolver.getmMap() != null) {
+                    if (mClusterManager == null) {
+                        mClusterManager = new ClusterManager<ClusterMarker>(getApplicationContext(), mapResolver.getmMap());
+
+
+                    }
+                    if (mClusterManagerRenderer == null) {
+                        mClusterManagerRenderer = new MyClusterManagerRenderer(
+                                MainActivityClient.this,
+                                mapResolver.getmMap(),
+                                mClusterManager
+                        );
+                        mClusterManager.setRenderer(mClusterManagerRenderer);
+                        //--------------------------------------------------
+                        mapResolver.getmMap().setOnMarkerClickListener(mClusterManager);
+                        mClusterManager.setOnClusterItemClickListener(new ClusterManager.OnClusterItemClickListener() {
+                            @Override
+                            public boolean onClusterItemClick(ClusterItem clusterItem) {
+                                Toast.makeText(getApplicationContext(), clusterItem.getTitle(), Toast.LENGTH_SHORT).show();
+                                taxiUsername = clusterItem.getTitle();
+                                showProfile(clusterItem.getTitle());
+                                return true;
+                            }
+                        });
+
+                    }
+
+                    for(TaxiDriver taxiDriver : all_taxi_drivers) {
+
+                        double lat = Double.parseDouble(taxiDriver.getKoordinateLat());
+                        double lon = Double.parseDouble(taxiDriver.getKoordinateLong());
+                        LatLng ll = new LatLng(lat, lon);
+
+                        try {
+                            int avatar = R.drawable.ic_cheif_new;
+
+                            ClusterMarker newClusterMarker = new ClusterMarker(
+                                    ll,
+                                    taxiDriver.getUsername(),
+                                    "Choose this Taxi driver: " + taxiDriver.getUsername() + " to take you?",
+                                    avatar,
+                                    taxiDriver
+                            );
+
+                            mClusterManager.addItem(newClusterMarker);
+                            mClusterMarkers.add(newClusterMarker);
+                        }
+                        catch(NullPointerException e) {
+
+                        }
+                    }
+
+                    mClusterManager.cluster();
+                }
             }
         };
         @SuppressLint("HandlerLeak") final Handler resposeMessageHandler = new Handler() {
@@ -142,7 +258,74 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
     }
 
-    private void addTaxisToMap() {
+    private void showProfile(String title) {
+        stringRequest = new StringRequest(Request.Method.GET, profileURL + "?username=" + title, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    JSONObject firmaObj = jsonObject.getJSONObject("firma");
+
+                    User user = new User(jsonObject.getString("ime"),
+                            jsonObject.getString("prezime"),
+                            jsonObject.getString("username"),
+                            Double.toString(jsonObject.getDouble("ocena")),
+                            firmaObj.getString("naziv"),
+                            firmaObj.getString("email"),
+                            firmaObj.getString("telefon"));
+
+                    SetupTaxiInfo(user);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        stringRequestQueue.add(stringRequest);
+    }
+
+    private void SetupTaxiInfo(User user) {
+
+        ime.setText(user.getIme() + " " + user.getPrezime());
+        firmaIme.setText(user.getFirmaNaziv());
+        ocena.setText(user.getOcena());
+        firmaEmail.setText(user.getFirmaEmail());
+        firmaTelefon.setText(user.getFirmaTelefon());
+
+        taxiActivityRide.setVisibility(View.VISIBLE);
+    }
+
+    private void addTaxiToList(TaxiDriver taxiDriver) {
+
+        boolean postoji = false;
+
+        for(TaxiDriver driver : all_taxi_drivers) {
+
+            if(driver.getUsername().equals(taxiDriver.getUsername())){
+
+                driver.setKoordinateLat(taxiDriver.getKoordinateLat());
+                driver.setKoordinateLong(taxiDriver.getKoordinateLong());
+                postoji = true;
+                break;
+            }
+        }
+
+        if(!postoji/* && !session.getUser().equals(taxiDriver.getUsername())*/) {
+
+            all_taxi_drivers.add(taxiDriver);
+        }
+    }
+
+    private void addTaxiToListt(TaxiDriver taxiDriver) {
+
+        boolean postoji = false;
 
         if(mapResolver.getmMap() != null) {
             if(mClusterManager == null) {
@@ -156,42 +339,66 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                 );
                 mClusterManager.setRenderer(mClusterManagerRenderer);
             }
+
             for(TaxiDriver driver : all_taxi_drivers) {
 
-                double lat = Double.parseDouble(driver.getKoordinateLat());
-                double lon = Double.parseDouble(driver.getKoordinateLong());
-                LatLng ll = new LatLng(lat, lon);
-                //mapResolver.getmMap().addMarker(new MarkerOptions().position(ll));
-                try {
-                    int avatar = R.drawable.ic_cheif_new;
+                if(driver.getUsername().equals(taxiDriver.getUsername())){
 
-                    ClusterMarker newClusterMarker = new ClusterMarker(
-                            ll,
-                            driver.getUsername(),
-                            "Choose this Taxi driver: " + driver.getUsername() + " to take you?",
-                            avatar,
-                            driver
-                    );
-                    mClusterManager.addItem(newClusterMarker);
-                    mClusterMarkers.add(newClusterMarker);
+                    driver.setKoordinateLat(taxiDriver.getKoordinateLat());
+                    driver.setKoordinateLong(taxiDriver.getKoordinateLong());
+                    postoji = true;
+                    break;
                 }
-                catch(NullPointerException e) {
 
-                }
-                mClusterManager.cluster();
             }
+
+            if(!postoji) {
+
+                all_taxi_drivers.add(taxiDriver);
+            }
+
+            double lat = Double.parseDouble(taxiDriver.getKoordinateLat());
+            double lon = Double.parseDouble(taxiDriver.getKoordinateLong());
+            LatLng ll = new LatLng(lat, lon);
+
+            try {
+                int avatar = R.drawable.ic_cheif_new;
+
+                ClusterMarker newClusterMarker = new ClusterMarker(
+                        ll,
+                        taxiDriver.getUsername(),
+                        "Choose this Taxi driver: " + taxiDriver.getUsername() + " to take you?",
+                        avatar,
+                        taxiDriver
+                );
+                mClusterManager.addItem(newClusterMarker);
+                mClusterMarkers.add(newClusterMarker);
+            }
+            catch(NullPointerException e) {
+
+            }
+            mClusterManager.cluster();
         }
     }
 
-    private void parseJSON(String jsonString) {
+    private List<TaxiDriver> parseJSON(String jsonString) {
 
         Gson gson = new Gson();
         Type type = new TypeToken<List<TaxiDriver>>(){}.getType();
         List<TaxiDriver> driverList = gson.fromJson(jsonString, type);
-        for (TaxiDriver driver : driverList){
-            all_taxi_drivers.add(driver);
-        }
+        return driverList;
     }
+
+
+//    private void parseJSON(String jsonString) {
+//
+//        Gson gson = new Gson();
+//        Type type = new TypeToken<List<TaxiDriver>>(){}.getType();
+//        List<TaxiDriver> driverList = gson.fromJson(jsonString, type);
+//        for (TaxiDriver driver : driverList){
+//            all_taxi_drivers.add(driver);
+//        }
+//    }
 
     @Override
     protected void onDestroy() {
@@ -205,36 +412,36 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
             @Override
             public void run() {
 
-                    try {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+            try {
+                Connection connection = factory.newConnection();
+                Channel channel = connection.createChannel();
 
-                        channel.basicQos(1);
-                        AMQP.Queue.DeclareOk q = channel.queueDeclare();
-                        channel.queueBind(q.getQueue(), "amq.fanout", "");
+                //channel.basicQos(1);
+                AMQP.Queue.DeclareOk q = channel.queueDeclare();
+                channel.queueBind(q.getQueue(), "amq.fanout", "");
 
-                        Consumer consumer = new DefaultConsumer(channel) {
-                            @Override
-                            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-                                    throws IOException {
+                Consumer consumer = new DefaultConsumer(channel) {
+                    @Override
+                    public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                            throws IOException {
 
-                                String message = new String(body, "UTF-8");
+                        String message = new String(body, "UTF-8");
 
-                                Message msg = handler.obtainMessage();
-                                Bundle bundle = new Bundle();
-                                bundle.putString("fanout", message);
-                                msg.setData(bundle);
-                                handler.sendMessage(msg);
+                        Message msg = handler.obtainMessage();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("fanout", message);
+                        msg.setData(bundle);
+                        handler.sendMessage(msg);
 
-                            }
-                        };
-                        channel.basicConsume(q.getQueue(), true, consumer);
-
-                    } catch (TimeoutException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
+                };
+                channel.basicConsume(q.getQueue(), true, consumer);
+
+            } catch (TimeoutException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
                }
 
         });
@@ -451,13 +658,13 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
         mapResolver.getmMap().setOnInfoWindowClickListener(this);
 
-        addTaxisToMap();
+      //  addTaxisToMap();
 
 
         if (mLocationPermissionsGranted) {
 
             mapResolver.moveCamera(new LatLng(mapResolver.getLastKnownLocation().getLatitude(),
-                    mapResolver.getLastKnownLocation().getLongitude()), 1f);
+                    mapResolver.getLastKnownLocation().getLongitude()), 15);
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,

@@ -19,8 +19,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\bane\AndroidStudioProjects\GeoTaxy\app\icons\maid.png" />
-                                      <entry key="outputName" value="ic_client" />
+                                      <entry key="imageAsset" value="C:\Users\bane\AndroidStudioProjects\GeoTaxy\app\icons\caret-down.png" />
+                                      <entry key="outputName" value="ic_caret" />
+                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="themeColor" value="633303" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -41,6 +43,11 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>

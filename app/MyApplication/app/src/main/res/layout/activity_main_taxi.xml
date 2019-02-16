@@ -8,24 +8,124 @@
     tools:context="com.example.milica.myapplication.MainActivityTaxi"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnKrajVoznje"
-        android:text="KRAJ VOZNJE"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnPocetakVoznje"
-        android:text="POCETAK VOZNJE"/>
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.milica.myapplication.MainActivityTaxi" />
+        android:layout_weight="1"
+        android:background="@color/colorPrimary">
 
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.milica.myapplication.MainActivityTaxi"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/taxi_activity_ride"
+        android:layout_weight="0"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/driver_image"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:src="@mipmap/ic_driver"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/star_image"
+            android:layout_below="@+id/driver_image"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_star"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/driver_rating"
+            android:textColor="@color/colorAccent"
+            android:text="4.4"
+            android:layout_toEndOf="@+id/star_image"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/driver_image"
+            android:layout_marginTop="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/driver_name"
+            android:textColor="@color/colorAccent"
+            android:text="Branislav Jovičić"
+            android:layout_toEndOf="@+id/driver_image"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/linijica"
+            android:background="@color/colorAccent"
+            android:layout_below="@+id/driver_name"
+            android:layout_toEndOf="@+id/driver_image"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/driver_company"
+            android:textColor="@color/colorAccent"
+            android:text="GeoTaxi"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/linijica"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/driver_image"
+            android:layout_marginTop="45dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_start_ride"
+                android:text="start ride"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/colorAccent"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_end_ride"
+                android:text="end ride"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

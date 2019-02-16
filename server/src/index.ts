@@ -51,8 +51,8 @@ const db_conn = createConnection(db).then(db_conn => {
         sum += voznja.ocena;
       });
       let ocena = sum/voznje.length;
-    //  user.ocena = ocena;
-     // db_conn.getRepository(Taksista).save(user);
+      user.ocena = ocena;
+      db_conn.getRepository(Taksista).save(user);
 
       res.json(user);
     }
