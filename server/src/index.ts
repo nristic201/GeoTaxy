@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import express from "express";
 import { createConnection, getManager, getCustomRepository, Any, Connection } from "typeorm";
-import { amqp_url } from "../helpers";
+import { amqp_url } from "./helpers";
 import { Taksista } from "./entiteti/Taksista";
 import { Voznja } from "./entiteti/Voznja";
 import { connect } from "tls";
