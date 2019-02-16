@@ -52,14 +52,14 @@ createConnection()
         .then(result => {
           if (result) {
             let user = result[0] as Taksista;
-            // let voznje = user.lista_voznji;
-            // let sum:number = 0;
-            // voznje.forEach(voznja => {
-            //   sum += voznja.ocena;
-            // });
-            //let ocena = sum / voznje.length;
-            //  user.ocena = ocena;
-            // db_conn.getRepository(Taksista).save(user);
+            let voznje = user.lista_voznji;
+            let sum:number = 0;
+            voznje.forEach(voznja => {
+              sum += voznja.ocena;
+            });
+            let ocena = sum / voznje.length;
+             user.ocena = ocena;
+            db_conn.getRepository(Taksista).save(user);
 
             res.json(user);
           }

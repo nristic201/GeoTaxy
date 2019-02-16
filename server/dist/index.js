@@ -50,14 +50,14 @@ typeorm_1.createConnection()
             .then(function (result) {
             if (result) {
                 var user = result[0];
-                // let voznje = user.lista_voznji;
-                // let sum:number = 0;
-                // voznje.forEach(voznja => {
-                //   sum += voznja.ocena;
-                // });
-                //let ocena = sum / voznje.length;
-                //  user.ocena = ocena;
-                // db_conn.getRepository(Taksista).save(user);
+                var voznje = user.lista_voznji;
+                var sum_1 = 0;
+                voznje.forEach(function (voznja) {
+                    sum_1 += voznja.ocena;
+                });
+                var ocena = sum_1 / voznje.length;
+                user.ocena = ocena;
+                db_conn.getRepository(Taksista_1.Taksista).save(user);
                 res.json(user);
             }
         });
