@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:true}));
 
 
 createConnection()
-  .then(db_conn => {
+  .then((db_conn:any) => {
     app.post("/login", (req: any, res: any) => {
       let username = req.body.username;
       let password = req.body.password;
@@ -28,7 +28,7 @@ createConnection()
         .find({
           username: username
         })
-        .then(user => {
+        .then((user:Taksista[]) => {
           if (user[0].password === password) {
             res.json(user[0]);
           } else {
@@ -49,7 +49,7 @@ createConnection()
           relations: ["firma", "lista_voznji"],
           where: { username: username }
         })
-        .then(result => {
+        .then((result:any)=> {
           if (result) {
             let user = result[0] as Taksista;
             let voznje = user.lista_voznji;
@@ -82,7 +82,7 @@ createConnection()
       });
     });
   })
-  .catch(err => console.log(err));
+  .catch((err:any) => console.log(err));
 
 function bail(err: any) {
   console.error(err);
@@ -91,7 +91,7 @@ function bail(err: any) {
 
 function receiveCoords(conn: any) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
     ch.assertQueue("KoordinateTaksista");
 
     ch.consume(
@@ -109,7 +109,7 @@ function receiveCoords(conn: any) {
 
 function replyReceivingCorrds(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
     console.log("sent");
     ch.assertExchange("amq.fanout", "fanout", { durable: true });
     ch.publish("amq.fanout", "", new Buffer(msg));
@@ -118,7 +118,7 @@ function replyReceivingCorrds(conn: any, msg: string) {
 
 function receiveRequests(conn: any) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
     ch.assertQueue("ZahtevQueue");
     ch.consume(
       "ZahtevQueue",
@@ -134,7 +134,7 @@ function receiveRequests(conn: any) {
 
 function replyRequests(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
     let request = JSON.parse(msg);
     let taxiUsername = request.usernameTaksiste;
     ch.assertQueue(taxiUsername + ":zahtev");
@@ -144,7 +144,7 @@ function replyRequests(conn: any, msg: string) {
 
 function receiveResponse(conn: any) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
 
     ch.assertQueue("OdgovorQueue");
     ch.consume(
@@ -161,7 +161,7 @@ function receiveResponse(conn: any) {
 
 function replyResponse(conn: any, msg: string) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
     let response = JSON.parse(msg);
     let queueForResponse = response.listeningQueue;
     ch.assertQueue(queueForResponse);
@@ -169,49 +169,42 @@ function replyResponse(conn: any, msg: string) {
   });
 }
 
-function receiveEndRide(conn: any, db_conn: any) {
+function receiveEndRide(conn:any, db_conn:any) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
-
     ch.assertQueue("KrajVoznjeQueue");
-    ch.consume(
-      "KrajVoznjeQueue",
-      (msg: any) => {
-        if (msg) {
-          let endRide = JSON.parse(msg.content.toString());
-          db_conn
-            .getRepository(Taksista)
-            .findOne({ username: endRide.username })
-            .then((taksista: any) => {
-              //let taksista_id:number = (taksista as Taksista).id;
-              let v: Voznja;
-              db_conn
-                .getRepository(Voznja)
-                .findOne({ vozac: taksista as Taksista, u_toku: 1 })
-                .then((voznja: any) => {
-                  v = voznja as Voznja;
-                  v.lokacija_do_lat = endRide.lat;
-                  v.lokacija_do_lon = endRide.lon;
-                  v.u_toku = 0;
-                  db_conn
-                    .getRepository(Voznja)
-                    .save(v)
-                    .then((res: any) => {
-                      replyEndRide(conn, msg.content.toString(), v);
-                    });
-                });
-            })
-            .catch((err: any) => console.log(err));
-        }
-      },
-      { noAck: true }
-    );
-  });
-}
+    ch.consume("KrajVoznjeQueue", (msg: any) => {
+      if (msg) {
 
+        let endRide = JSON.parse(msg.content.toString());
+        let v:any;
+        db_conn.getRepository(Taksista).findOne({relations: ["lista_voznji"], where: { username: endRide.username}})
+        .then(async (taksista:any) => {
+          console.log(taksista)
+          let taxist = (taksista as Taksista);
+          taxist.lista_voznji.forEach(voznja => {
+              if(voznja.u_toku == 1) {
+                v = voznja;
+                console.log(v)
+              }
+          })
+
+          v.lokacija_do_lat = endRide.lat;
+          v.lokacija_do_lon = endRide.lon;
+          v.u_toku = 0;
+          
+          db_conn.getRepository(Voznja).save(v).then((res:any) => {
+                
+            console.log(v);
+            replyEndRide(conn, msg.content.toString(), v);
+          });
+        }).catch((err:any) => console.log(err));
+      }
+    }, {noAck: true});
+  }); 
+}
 function replyEndRide(conn: any, msg: string, v: Voznja) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
 
     let endRide = JSON.parse(msg);
     let voznja = { id_voznje: v.id };
@@ -224,7 +217,7 @@ function replyEndRide(conn: any, msg: string, v: Voznja) {
 
 function receiveStartRide(conn: any, db_conn: any) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
 
     ch.assertQueue("PocetakVoznjeQueue");
     ch.consume(
@@ -263,7 +256,7 @@ function receiveStartRide(conn: any, db_conn: any) {
 
 function receiveOcena(conn: any, db_conn: any) {
   conn.createChannel((err: any, ch: any) => {
-    if (!err == null) bail(err);
+     
 
     ch.assertQueue("OcenaQueue");
     ch.consume(
