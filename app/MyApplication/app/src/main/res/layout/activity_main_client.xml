@@ -74,7 +74,8 @@
             android:layout_below="@id/driver_image"
             android:layout_marginTop="5dp"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:maxLength="4"/>
 
         <TextView
             android:layout_width="wrap_content"

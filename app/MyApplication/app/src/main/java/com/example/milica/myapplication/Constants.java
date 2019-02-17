@@ -9,6 +9,7 @@ import java.util.UUID;
 public class Constants {
 
 
+    public static String serverName = "http://3.16.109.157:3000";
     public static String hostName = "amqp://yfidhcfx:D_3FHXHAUckbirmes_ZKCqICb3lFYL2V@bee.rmq.cloudamqp.com/yfidhcfx";
     public static String QUEUE_KOORDINATE_TAKSISTA = "KoordinateTaksista";
     public static String QUEUE_REQUEST = "ZahtevQueue";

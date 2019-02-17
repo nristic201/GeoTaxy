@@ -1877,7 +1877,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td></td></tr>
+     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>
@@ -3235,20 +3235,22 @@ public final class R {
     public static final int ic_launcher_backgrounddd=0x7f060071;
     public static final int ic_launcher_foreground=0x7f060072;
     public static final int ic_star=0x7f060073;
-    public static final int notification_action_background=0x7f060074;
-    public static final int notification_bg=0x7f060075;
-    public static final int notification_bg_low=0x7f060076;
-    public static final int notification_bg_low_normal=0x7f060077;
-    public static final int notification_bg_low_pressed=0x7f060078;
-    public static final int notification_bg_normal=0x7f060079;
-    public static final int notification_bg_normal_pressed=0x7f06007a;
-    public static final int notification_icon_background=0x7f06007b;
-    public static final int notification_template_icon_bg=0x7f06007c;
-    public static final int notification_template_icon_low_bg=0x7f06007d;
-    public static final int notification_tile_bg=0x7f06007e;
-    public static final int notify_panel_notification_icon_bg=0x7f06007f;
-    public static final int tooltip_frame_dark=0x7f060080;
-    public static final int tooltip_frame_light=0x7f060081;
+    public static final int ic_taxi_marker_free=0x7f060074;
+    public static final int ic_taxi_marker_taken=0x7f060075;
+    public static final int notification_action_background=0x7f060076;
+    public static final int notification_bg=0x7f060077;
+    public static final int notification_bg_low=0x7f060078;
+    public static final int notification_bg_low_normal=0x7f060079;
+    public static final int notification_bg_low_pressed=0x7f06007a;
+    public static final int notification_bg_normal=0x7f06007b;
+    public static final int notification_bg_normal_pressed=0x7f06007c;
+    public static final int notification_icon_background=0x7f06007d;
+    public static final int notification_template_icon_bg=0x7f06007e;
+    public static final int notification_template_icon_low_bg=0x7f06007f;
+    public static final int notification_tile_bg=0x7f060080;
+    public static final int notify_panel_notification_icon_bg=0x7f060081;
+    public static final int tooltip_frame_dark=0x7f060082;
+    public static final int tooltip_frame_light=0x7f060083;
   }
   public static final class id {
     public static final int ALT=0x7f070000;
@@ -8272,7 +8274,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td></td></tr>
+     * <tr><td>direct</td><td>1</td><td>direct, barriers, chains</td></tr>
      * <tr><td>groups</td><td>20</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>7</td><td></td></tr>

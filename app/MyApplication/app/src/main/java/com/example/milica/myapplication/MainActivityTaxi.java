@@ -21,6 +21,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Api;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -31,6 +38,7 @@ import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.LocationSource.OnLocationChangedListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -46,6 +54,9 @@ import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -60,7 +71,10 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeoutException;
 
-public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCallback, TaxiReplyDialog.DialogListener {
+public class MainActivityTaxi extends AppCompatActivity implements
+        OnMapReadyCallback,
+        TaxiReplyDialog.DialogListener,
+        ApiService.ProfileResult {
 
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -92,8 +106,10 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
     private RelativeLayout taxiRideLayout;
     private Button btnKrajVoznje;
     private Button btnPocetakVoznje;
+    private TextView ime;
+    private TextView firmaIme;
+    private TextView ocena;
     private boolean voznjaUToku;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,11 +142,15 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
         PublishCallback();
         // int i = 0;
 
+        ime = findViewById(R.id.driver_name);
+        firmaIme = findViewById(R.id.driver_company);
+        ocena = findViewById(R.id.driver_rating);
         btnKrajVoznje = findViewById(R.id.button_end_ride);
         btnPocetakVoznje = findViewById(R.id.button_start_ride);
         taxiRideLayout = findViewById(R.id.taxi_activity_ride);
         taxiRideLayout.setVisibility(View.GONE);
         voznjaUToku = false;
+
 
         btnPocetakVoznje.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +165,11 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                 String msg = gson.toJson(sr);
 
                 PushToStartRideQueue(msg);
+
+                btnPocetakVoznje.setVisibility(View.GONE);
+                voznjaUToku = true;
+                btnKrajVoznje.setVisibility(View.VISIBLE);
+                taxiRideLayout.setVisibility(View.VISIBLE);
             }
         });
 
@@ -183,7 +208,14 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                     double lat = Double.parseDouble(taxiDriver.getKoordinateLat());
                     double lon = Double.parseDouble(taxiDriver.getKoordinateLong());
                     LatLng ll = new LatLng(lat, lon);
-                    mapResolver.getmMap().addMarker(new MarkerOptions().position(ll));
+                    if(taxiDriver.isZauzet() == 1) {
+
+                        mapResolver.getmMap().addMarker(new MarkerOptions().position(ll).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_taxi_marker_taken)));
+                    }
+                    else {
+
+                        mapResolver.getmMap().addMarker(new MarkerOptions().position(ll).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_taxi_marker_free)));
+                    }
                 }
             }
         };
@@ -211,54 +243,6 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
         SendResponse();
         SendEndRide();
     }
-
-//    private void getLocationUpdates() {
-//        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-//                == PermissionChecker.PERMISSION_GRANTED &&
-//                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-//                        == PermissionChecker.PERMISSION_GRANTED) {
-//
-//            fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
-//                @Override
-//                public void onLocationResult(LocationResult locationResult) {
-//                    super.onLocationResult(locationResult);
-//                    Gson gson = new Gson();
-//
-//
-//                    Location loc = mapResolver.getLastKnownLocation();
-//                    if(locationResult.getLastLocation().getLongitude() != location.getLongitude() ||
-//                            locationResult.getLastLocation().getLatitude() != location.getLatitude()) {
-//
-//                        double latitude = locationResult.getLastLocation().getLatitude();
-//                        double longitude = locationResult.getLastLocation().getLongitude();
-//
-//                        session.setLatitude(Double.toString(latitude));
-//                        session.setLongitude(Double.toString(longitude));
-//
-//                        TaxiDriver taxiDriver = new TaxiDriver(session.getUser(),
-//                                session.getPassword(),
-//                                session.getIme(),
-//                                Double.toString(latitude),
-//                                Double.toString(longitude),
-//                                session.getPrezime());
-//                        ArrayList<TaxiDriver> lista = new ArrayList<>();
-//                        lista.add(taxiDriver);
-//
-//                        String userGson = gson.toJson(lista);
-//                        location = locationResult.getLastLocation();
-//
-//                        PushToInternalQueue(userGson);
-//                    }
-//
-//
-//                }
-//            }, getMainLooper());
-//        }
-//        else {
-//            getPermissions();
-//        }
-//
-//    }
 
     private void getPermissions() {
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
@@ -318,6 +302,7 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
 
                 driver.setKoordinateLat(taxiDriver.getKoordinateLat());
                 driver.setKoordinateLong(taxiDriver.getKoordinateLong());
+                driver.setZauzet(taxiDriver.isZauzet());
                 postoji = true;
                 break;
             }
@@ -348,12 +333,9 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                     Connection connection = factory.newConnection();
                     final Channel channel = connection.createChannel();
 
-                    //while(true) {
-                      //  channel.basicQos(1);
-                        final AMQP.Queue.DeclareOk q = channel.queueDeclare(session.getUser() + new Date().getTime(),
+                        final AMQP.Queue.DeclareOk q = channel.queueDeclare(session.getUser() + "123",
                                 true, false, false, null);
 
-           //             while(true) {
                             channel.queueBind(q.getQueue(), "amq.fanout", "");
 
                             Consumer consumer = new DefaultConsumer(channel) {
@@ -364,8 +346,6 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                                     String message = new String(body, "UTF-8");
                                     final long msgTag = envelope.getDeliveryTag();
 
-                                    // channel.queueBind(q.getQueue(), "amq.fanout", "");
-
                                     channel.basicAck(msgTag, false);
                                     Message msg = handler.obtainMessage();
                                     Bundle bundle = new Bundle();
@@ -375,10 +355,6 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                                 }
                             };
                             channel.basicConsume(q.getQueue(), false, consumer);
-//                        }
-
-                  //  }
-
 
                 } catch (TimeoutException e) {
                     e.printStackTrace();
@@ -409,12 +385,15 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
                 session.setLatitude(Double.toString(latitude));
                 session.setLongitude(Double.toString(longitude));
 
+                int status = voznjaUToku ? 1 : 0;
+
                 TaxiDriver taxiDriver = new TaxiDriver(session.getUser(),
                         session.getPassword(),
                         session.getIme(),
                         Double.toString(latitude),
                         Double.toString(longitude),
-                        session.getPrezime());
+                        session.getPrezime(),
+                        status);
                 ArrayList<TaxiDriver> lista = new ArrayList<>();
                 lista.add(taxiDriver);
 
@@ -764,10 +743,31 @@ public class MainActivityTaxi extends AppCompatActivity implements OnMapReadyCal
             String odg = gson.toJson(odgovor);
             PushToRespondQueue(odg);
 
-            taxiRideLayout.setVisibility(View.VISIBLE);
             btnKrajVoznje.setVisibility(View.GONE);
             btnPocetakVoznje.setVisibility(View.VISIBLE);
             voznjaUToku = true;
+
+            //showProfile(session.getUser());
+            ApiService.getUserInfo(this, session.getUser(), getApplicationContext());
         }
+    }
+
+    private void SetupTaxiInfo(User user) {
+
+        ime.setText(user.getIme() + " " + user.getPrezime());
+        firmaIme.setText(user.getFirmaNaziv());
+        ocena.setText(user.getOcena());
+
+        taxiRideLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onError() {
+        Toast.makeText(getApplicationContext(), "asd", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSuccess(User user) {
+        SetupTaxiInfo(user);
     }
 }

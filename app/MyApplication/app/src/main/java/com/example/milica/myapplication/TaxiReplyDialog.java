@@ -30,6 +30,8 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
     private DialogListener listener;
     private GoogleMap mMap;
     private LatLng markerLatLng;
+    private View view;
+    private Context context;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -37,7 +39,12 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View view = inflater.inflate(R.layout.taxi_reply_dialog, null);
+        try {
+            view = inflater.inflate(R.layout.taxi_reply_dialog, null);
+        }
+        catch(Exception e) {
+            Toast.makeText(getActivity(), "asd", Toast.LENGTH_SHORT).show();
+        }
 
         try {
             String args = getArguments().getString("marker");
@@ -97,6 +104,7 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
 
         try {
             listener = (DialogListener) context;
+            this.context = context;
         } catch (ClassCastException e) {
             e.printStackTrace();
         }

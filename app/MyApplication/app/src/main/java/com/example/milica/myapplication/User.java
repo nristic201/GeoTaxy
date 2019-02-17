@@ -2,6 +2,7 @@ package com.example.milica.myapplication;
 
 public class User {
     private String ime, prezime, username, ocena, firmaNaziv, firmaEmail, firmaTelefon;
+    private boolean zauzet;
 
     public User(String ime, String prezime, String username, String ocena, String firmaNaziv, String firmaEmail, String firmaTelefon) {
         this.ime = ime;
@@ -67,5 +68,13 @@ public class User {
 
     public void setFirmaTelefon(String firmaTelefon) {
         this.firmaTelefon = firmaTelefon;
+    }
+
+    public boolean isZauzet() {
+        return zauzet;
+    }
+
+    public void setZauzet(boolean zauzet) {
+        this.zauzet = zauzet;
     }
 }

@@ -10,9 +10,10 @@ public class TaxiDriver {
     private String ime;
     private String koordinateLat, koordinateLong;
     private String prezime;
+    private int zauzet;
 
 
-    public TaxiDriver(String username, String password, String ime, String koordinateLat, String koordinateLong, String prezime) {
+    public TaxiDriver(String username, String password, String ime, String koordinateLat, String koordinateLong, String prezime, int zauz) {
 
         this.username = username;
         this.password = password;
@@ -20,6 +21,7 @@ public class TaxiDriver {
         this.koordinateLat = koordinateLat;
         this.koordinateLong = koordinateLong;
         this.prezime = prezime;
+        this.zauzet = zauz;
     }
     public TaxiDriver(String username, String password, String ime, String prezime) {
         this.username = username;
@@ -77,4 +79,11 @@ public class TaxiDriver {
         this.prezime = prezime;
     }
 
+    public int isZauzet() {
+        return zauzet;
+    }
+
+    public void setZauzet(int zauzet) {
+        this.zauzet = zauzet;
+    }
 }

@@ -57,13 +57,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/driver_rating"
             android:textColor="@color/colorAccent"
-            android:text="4.4"
+            android:text="4.45"
             android:layout_toEndOf="@+id/star_image"
             android:layout_marginStart="10dp"
             android:layout_below="@id/driver_image"
             android:layout_marginTop="5dp"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:maxLength="4"/>
 
         <TextView
             android:layout_width="wrap_content"

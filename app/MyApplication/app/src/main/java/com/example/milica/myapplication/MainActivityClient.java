@@ -67,7 +67,10 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeoutException;
 
-public class MainActivityClient extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, RatingBarDialog.RatingDialogListener {
+public class MainActivityClient extends AppCompatActivity implements OnMapReadyCallback,
+        GoogleMap.OnInfoWindowClickListener,
+        RatingBarDialog.RatingDialogListener,
+        ApiService.ProfileResult {
 
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -92,11 +95,6 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
     private Thread respondToOcenaThread;
     private Zahtev zahtev;
     private IdVoznje idVoznje;
-
-    private StringRequest stringRequest;
-    private String profileURL = "http://3.16.109.157:3000/profile";
-    private RequestQueue stringRequestQueue;
-
     private RelativeLayout taxiActivityRide;
     private TextView ime;
     private TextView firmaIme;
@@ -107,6 +105,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
     private Button btnSendRequest;
 
     private String taxiUsername;
+    private Marker locationMarker;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -127,8 +126,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
         taxiActivityRide.setVisibility(View.GONE);
         ime = findViewById(R.id.driver_name);
         firmaIme = findViewById(R.id.driver_company);
-        firmaIme = findViewById(R.id.driver_company_email);
-        firmaIme = findViewById(R.id.driver_company_telefon);
+        firmaEmail = findViewById(R.id.driver_company_email);
+        firmaTelefon = findViewById(R.id.driver_company_telefon);
         ocena = findViewById(R.id.driver_rating);
         hideInfo = findViewById(R.id.caret);
         hideInfo.setOnClickListener(new View.OnClickListener() {
@@ -147,10 +146,10 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                 zahtev.setUsernameTaksiste(taxiUsername);
 
                 PublishToRequestQueue(zahtev);
+                btnSendRequest.setVisibility(View.GONE);
             }
         });
-
-        stringRequestQueue = Volley.newRequestQueue(this);
+        btnSendRequest.setVisibility(View.GONE);
 
         @SuppressLint("HandlerLeak") final Handler fanoutMessageHandler = new Handler() {
             @Override
@@ -181,13 +180,22 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                         mClusterManager.setOnClusterItemClickListener(new ClusterManager.OnClusterItemClickListener() {
                             @Override
                             public boolean onClusterItemClick(ClusterItem clusterItem) {
-                                Toast.makeText(getApplicationContext(), clusterItem.getTitle(), Toast.LENGTH_SHORT).show();
                                 taxiUsername = clusterItem.getTitle();
-                                showProfile(clusterItem.getTitle());
+
+                                ClusterMarker cm = (ClusterMarker) clusterItem;
+
+                                getUserInfo(clusterItem.getTitle());
+                                if(zahtev != null && cm.getIconPicture() == R.drawable.ic_taxi_marker_free) {
+
+                                    btnSendRequest.setVisibility(View.VISIBLE);
+                                }
+                                else {
+
+                                    btnSendRequest.setVisibility(View.GONE);
+                                }
                                 return true;
                             }
                         });
-
                     }
 
                     for(TaxiDriver taxiDriver : all_taxi_drivers) {
@@ -196,22 +204,45 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                         double lon = Double.parseDouble(taxiDriver.getKoordinateLong());
                         LatLng ll = new LatLng(lat, lon);
 
-                        try {
-                            int avatar = R.drawable.ic_cheif_new;
+                        if(taxiDriver.isZauzet() == 1) {
 
-                            ClusterMarker newClusterMarker = new ClusterMarker(
-                                    ll,
-                                    taxiDriver.getUsername(),
-                                    "Choose this Taxi driver: " + taxiDriver.getUsername() + " to take you?",
-                                    avatar,
-                                    taxiDriver
-                            );
+                            try {
+                                int avatar = R.drawable.ic_taxi_marker_taken;
 
-                            mClusterManager.addItem(newClusterMarker);
-                            mClusterMarkers.add(newClusterMarker);
+                                ClusterMarker newClusterMarker = new ClusterMarker(
+                                        ll,
+                                        taxiDriver.getUsername(),
+                                        "Choose this Taxi driver: " + taxiDriver.getUsername() + " to take you?",
+                                        avatar,
+                                        taxiDriver
+                                );
+
+                                mClusterManager.addItem(newClusterMarker);
+                                mClusterMarkers.add(newClusterMarker);
+                            }
+                            catch(NullPointerException e) {
+
+                            }
                         }
-                        catch(NullPointerException e) {
+                        else {
 
+                            try {
+                                int avatar = R.drawable.ic_taxi_marker_free;
+
+                                ClusterMarker newClusterMarker = new ClusterMarker(
+                                        ll,
+                                        taxiDriver.getUsername(),
+                                        "Choose this Taxi driver: " + taxiDriver.getUsername() + " to take you?",
+                                        avatar,
+                                        taxiDriver
+                                );
+
+                                mClusterManager.addItem(newClusterMarker);
+                                mClusterMarkers.add(newClusterMarker);
+                            }
+                            catch(NullPointerException e) {
+
+                            }
                         }
                     }
 
@@ -240,12 +271,13 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
                 idVoznje = gson.fromJson(message, IdVoznje.class);
 
+                locationMarker.remove();
+                zahtev = null;
 
                 RatingBarDialog ratingBarDialog = new RatingBarDialog();
                 ratingBarDialog.show(getSupportFragmentManager(),  "Rating reply dialog");
             }
         };
-//[{"ime":"Milica","koordinateLat":"43.3329682","koordinateLong":"21.8932287","password":"0000","prezime":"Martinovic","username":"comi"}]
 
         setupConnectionFactory(Constants.hostName);
 
@@ -258,37 +290,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
     }
 
-    private void showProfile(String title) {
-        stringRequest = new StringRequest(Request.Method.GET, profileURL + "?username=" + title, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-
-                    JSONObject firmaObj = jsonObject.getJSONObject("firma");
-
-                    User user = new User(jsonObject.getString("ime"),
-                            jsonObject.getString("prezime"),
-                            jsonObject.getString("username"),
-                            Double.toString(jsonObject.getDouble("ocena")),
-                            firmaObj.getString("naziv"),
-                            firmaObj.getString("email"),
-                            firmaObj.getString("telefon"));
-
-                    SetupTaxiInfo(user);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        stringRequestQueue.add(stringRequest);
+    private void getUserInfo(String title) {
+        ApiService.getUserInfo(this, title, getApplicationContext());
     }
 
     private void SetupTaxiInfo(User user) {
@@ -312,6 +315,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
 
                 driver.setKoordinateLat(taxiDriver.getKoordinateLat());
                 driver.setKoordinateLong(taxiDriver.getKoordinateLong());
+                driver.setZauzet(taxiDriver.isZauzet());
                 postoji = true;
                 break;
             }
@@ -750,6 +754,9 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                                 Toast.makeText(getApplicationContext(), "You chose your location", Toast.LENGTH_SHORT).show();
 
                                 dialog.dismiss();
+
+                                locationMarker = mapResolver.getmMap().addMarker(new MarkerOptions().position(new LatLng(arg0.latitude, arg0.longitude)));
+                                //btnSendRequest.setVisibility(View.VISIBLE);
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -806,6 +813,14 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
     public void applyReply(String reply) {
         GiveStars(Float.parseFloat(reply));
     }
+
+    @Override
+    public void onError() {
+        Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSuccess(User user) {
+        SetupTaxiInfo(user);
+    }
 }
-
-

@@ -33,7 +33,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 //10.66.20.143
     //http://18.222.78.138:3000/login rista
-    private static String LOGIN_URL = "http://3.16.109.157:3000/login";
+    private static String LOGIN_URL = "http://3.16.109.157:000/login";
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private Session session;
