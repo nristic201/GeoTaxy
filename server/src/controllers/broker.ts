@@ -99,9 +99,17 @@ class Broker {
                     if (msg) {
                         let endRide = JSON.parse(msg.content.toString());
                         let taxiRepo = getCustomRepository(TaxiDriverRepository);
+                        let ride: Voznja;
                         taxiRepo.findDriverByUsername(endRide.username)
                             .then((vozac: Taksista) => {
+                                    let rideRepo = getCustomRepository(RideRepository);
+                        
                                     vozac.lista_voznji.forEach((element:any)=>{
+                                        if(element.u_toku===1){
+                                            ride=element;
+                                            console.log(ride);
+                                        }
+                                        })
                                         ride.lokacija_do_lat = endRide.lat;
                                         ride.lokacija_do_lon = endRide.lon;
                                         ride.u_toku = 0;
@@ -109,7 +117,7 @@ class Broker {
                                             .then((r: Voznja) => {
                                                 this.replyEndRide(msg.content.toString(), r);
                                             });
-                                    })
+                                
                             })
                             //let taksista_id:number = (taksista as Taksista).id;
                             .catch((err: any) => console.log(err));
