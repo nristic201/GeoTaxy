@@ -12,6 +12,13 @@ class TaxiDriverController{
         this.taxiRepository=getCustomRepository(TaxiDriverRepository);
         this.taxiRepository.getDriverProfile(username)
         .then((user:Taksista)=>{
+            let sum:number=0;
+            user.lista_voznji.forEach((element:any)=>{
+                sum+=element.ocena;
+            })
+            let ocena = sum / (user.lista_voznji.length);
+            user.Ocena=ocena;
+            this.taxiRepository.save(user);
             res.json(user);
         })
     }
