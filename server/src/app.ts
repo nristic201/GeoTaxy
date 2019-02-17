@@ -22,10 +22,7 @@ class App {
         this.app.use(apiRoute);
         this.app.listen(this.port, () => {
             console.log("express pokrenut... port 3k");
-            this.amqp_service.getAMQPConnection().then((conn:any)=>{
-                this.broker=new Broker(conn);
-                this.broker.start();
-            });
+                this.broker=new Broker();
         });
     }
 }
