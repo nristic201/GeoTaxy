@@ -28,6 +28,7 @@ class Broker {
   receiveCords() {
     this.conn.createChannel((err: any, ch: any) => {
       if (err) console.log(err);
+      console.log('coords');
       ch.assertQueue("KoordinateTaksista");
       ch.consume(
         "KoordinateTaksista",
@@ -109,7 +110,6 @@ class Broker {
               .findDriverByUsername(endRide.username)
               .then((vozac: Taksista) => {
                 
-
                 vozac.lista_voznji.forEach((element: any) => {
                   if (element.u_toku === 1) {
                     ride = element;
@@ -187,8 +187,9 @@ class Broker {
           if (msg) {
             let rideRepo = getCustomRepository(RideRepository);
             let ocena = JSON.parse(msg.content.toString());
-            rideRepo.findRideByID(ocena.id).then((res: any) => {
+            rideRepo.findRideByID(ocena.idVoznje).then((res: any) => {
               let voznja = res as Voznja;
+              console.log(ocena)
               voznja.ocena = ocena.ocena;
               rideRepo.save(voznja);
             });
