@@ -127,7 +127,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
         all_taxi_drivers = new ArrayList<>();
         location = new Location("gps");
 
-        setupConnectionFactory(Constants.hostName);
+       // setupConnectionFactory(Constants.hostName);
         SendMessage();
         SendStartRide();
 
@@ -308,7 +308,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
             }
         }
 
-        if(!postoji/* && !session.getUser().equals(taxiDriver.getUsername())*/) {
+        if(!postoji && !session.getUser().equals(taxiDriver.getUsername())) {
 
             all_taxi_drivers.add(taxiDriver);
         }
@@ -330,8 +330,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
             public void run() {
                 try
                 {
-                    Connection connection = factory.newConnection();
-                    final Channel channel = connection.createChannel();
+                    final Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
 
                         final AMQP.Queue.DeclareOk q = channel.queueDeclare(session.getUser() + "123",
                                 true, false, false, null);
@@ -356,8 +355,6 @@ public class MainActivityTaxi extends AppCompatActivity implements
                             };
                             channel.basicConsume(q.getQueue(), false, consumer);
 
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -407,7 +404,6 @@ public class MainActivityTaxi extends AppCompatActivity implements
         }, delay);
     }
 
-
     public void PushToRespondQueue(String str) {
         try {
             respondQueue.putLast(str);
@@ -430,8 +426,8 @@ public class MainActivityTaxi extends AppCompatActivity implements
             @Override
             public void run() {
                 try {
-                    Connection connection = factory.newConnection();
-                    Channel channel = connection.createChannel();
+                  //  Connection connection = factory.newConnection();
+                    Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
 
                     AMQP.Queue.DeclareOk q = channel.queueDeclare(session.getUser() +":zahtev", true,
                             false, false, null);
@@ -453,9 +449,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
                     };
                     channel.basicConsume(q.getQueue(), true, consumer);
 
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
+                }catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -472,8 +466,8 @@ public class MainActivityTaxi extends AppCompatActivity implements
                 {
                     try
                     {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+                    //    Connection connection = factory.newConnection();
+                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -511,8 +505,8 @@ public class MainActivityTaxi extends AppCompatActivity implements
                 {
                     try
                     {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+                       // Connection connection = factory.newConnection();
+                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -552,8 +546,8 @@ public class MainActivityTaxi extends AppCompatActivity implements
                 {
                     try
                     {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+                   //    Connection connection = factory.newConnection();
+                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -595,8 +589,8 @@ public class MainActivityTaxi extends AppCompatActivity implements
                 {
                     try
                     {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+                     //   Connection connection = factory.newConnection();
+                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -704,18 +698,6 @@ public class MainActivityTaxi extends AppCompatActivity implements
                     initMap();
                 }
             }
-        }
-    }
-
-    private void setupConnectionFactory(String uri) {
-        try
-        {
-            factory.setAutomaticRecoveryEnabled(false);
-            factory.setUri(uri);
-        }
-        catch(KeyManagementException | NoSuchAlgorithmException | URISyntaxException e)
-        {
-            e.printStackTrace();
         }
     }
 

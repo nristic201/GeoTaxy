@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
@@ -31,6 +33,7 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
     private GoogleMap mMap;
     private LatLng markerLatLng;
     private View view;
+    private SupportMapFragment supportMapFragment;
     private Context context;
 
     @Override
@@ -89,11 +92,12 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
                     response = "10 minutes";
                 }
                 listener.applyReply(response);
+
             }
         });
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_taxi_reply_dialog);
-        mapFragment.getMapAsync(this);
+        supportMapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_taxi_reply_dialog);
+        supportMapFragment.getMapAsync(this);
 
         return builder.create();
     }
@@ -132,4 +136,6 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
 
         return trd;
     }
+
+
 }

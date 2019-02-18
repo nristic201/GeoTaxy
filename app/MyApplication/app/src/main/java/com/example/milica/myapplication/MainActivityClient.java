@@ -279,7 +279,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
             }
         };
 
-        setupConnectionFactory(Constants.hostName);
+      //  setupConnectionFactory(Constants.hostName);
 
         SubscribeToFanoutExchange(fanoutMessageHandler);
 
@@ -417,8 +417,9 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
             public void run() {
 
             try {
-                Connection connection = factory.newConnection();
-                Channel channel = connection.createChannel();
+            //    Connection connection = factory.newConnection();
+                Channel channel =
+                        ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
 
                 //channel.basicQos(1);
                 AMQP.Queue.DeclareOk q = channel.queueDeclare();
@@ -441,8 +442,7 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                 };
                 channel.basicConsume(q.getQueue(), true, consumer);
 
-            } catch (TimeoutException e) {
-                e.printStackTrace();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -459,8 +459,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
             @Override
             public void run() {
                 try {
-                    Connection connection = factory.newConnection();
-                    Channel channel = connection.createChannel();
+                    //Connection connection = factory.newConnection();
+                    Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
 
                     AMQP.Queue.DeclareOk q = channel.queueDeclare(android_id + "1", true,
                             false, false, null);
@@ -482,8 +482,6 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                     };
                     channel.basicConsume(q.getQueue(), true, consumer);
 
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -499,8 +497,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
             @Override
             public void run() {
                 try {
-                    Connection connection = factory.newConnection();
-                    Channel channel = connection.createChannel();
+                   // Connection connection = factory.newConnection();
+                    Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
 
                     AMQP.Queue.DeclareOk q = channel.queueDeclare(android_id, true,
                             false, false, null);
@@ -522,8 +520,6 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                     };
                     channel.basicConsume(q.getQueue(), true, consumer);
 
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -570,8 +566,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                 {
                     try
                     {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+                        //Connection connection = factory.newConnection();
+                        Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -618,8 +614,8 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
                 {
                     try
                     {
-                        Connection connection = factory.newConnection();
-                        Channel channel = connection.createChannel();
+                        //Connection connection = factory.newConnection();
+                        Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -797,18 +793,18 @@ public class MainActivityClient extends AppCompatActivity implements OnMapReadyC
         final AlertDialog alert = builder.create();
         alert.show();
     }
-
-    private void setupConnectionFactory(String uri) {
-        try
-        {
-            factory.setAutomaticRecoveryEnabled(false);
-            factory.setUri(uri);
-        }
-        catch(KeyManagementException | NoSuchAlgorithmException | URISyntaxException e)
-        {
-            e.printStackTrace();
-        }
-    }
+//
+//    private void setupConnectionFactory(String uri) {
+//        try
+//        {
+//            factory.setAutomaticRecoveryEnabled(false);
+//            factory.setUri(uri);
+//        }
+//        catch(KeyManagementException | NoSuchAlgorithmException | URISyntaxException e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
     @Override
     public void applyReply(String reply) {
         GiveStars(Float.parseFloat(reply));

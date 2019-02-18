@@ -31,13 +31,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-//10.66.20.143
-    //http://18.222.78.138:3000/login rista
-    private static String LOGIN_URL = "http://3.16.109.157:000/login";
-    private RequestQueue requestQueue;
+
+    private static String LOGIN_URL = Constants.serverName + "/login";
     private StringRequest stringRequest;
     private Session session;
-//45831
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,8 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         Button btnProceed = (Button) findViewById(R.id.btnProceed);
-
-        requestQueue = Volley.newRequestQueue(this);
 
         btnProceed.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -107,16 +103,8 @@ public class LoginActivity extends AppCompatActivity {
                         return hashMap;
                     }
                 };
-                requestQueue.add(stringRequest);
+                RequestQueueSingleton.getInstance(getApplicationContext()).addRequest(stringRequest);
 
-                /*Toast.makeText(getApplicationContext(), "Login succeded", Toast.LENGTH_SHORT).show();
-                session.setLoggedIn(true);
-                session.setUser("comi");
-                session.setIme("Milica");
-                session.setPrezime("Martinovic");
-                session.setPassword("0000");
-                Intent intent = new Intent(getApplicationContext(), MainActivityTaxi.class);
-                startActivity(intent);*/
             }
     });
     }

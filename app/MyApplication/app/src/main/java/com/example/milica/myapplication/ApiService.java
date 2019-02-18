@@ -26,7 +26,7 @@ public class ApiService {
     }
 
     public static void getUserInfo(final ProfileResult profileResult, String username, Context context) {
-      //  requestQueue =  Volley.newRequestQueue();
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.serverName +
                 "/profile?username=" + username,
                 new Response.Listener<String>() {
@@ -48,7 +48,6 @@ public class ApiService {
                             firmaObj.getString("telefon"));
 
                     profileResult.onSuccess(user);
-                    //SetupTaxiInfo(user);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
