@@ -4,12 +4,16 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -64,6 +68,7 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
             public void onClick(DialogInterface dialog, int which) {
                 response = "No";
                 listener.applyReply(response);
+
             }
         })
         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -92,14 +97,42 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
                     response = "10 minutes";
                 }
                 listener.applyReply(response);
-
             }
         });
 
-        supportMapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_taxi_reply_dialog);
+       // supportMapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map_taxi_reply_dialog);
+        supportMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_layout);
+        if(supportMapFragment == null) {
+            supportMapFragment = SupportMapFragment.newInstance();
+            getChildFragmentManager().beginTransaction().replace(R.id.map_layout, supportMapFragment).commit()
+        }
         supportMapFragment.getMapAsync(this);
 
         return builder.create();
+    }
+
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     * This is optional, and non-graphical fragments can return null (which
+     * is the default implementation).  This will be called between
+     * {@link #onCreate(Bundle)} and {@link #onActivityCreated(Bundle)}.
+     * <p>
+     * <p>If you return a View from here, you will later be called in
+     * {@link #onDestroyView} when the view is being released.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's
+     *                           UI should be attached to.  The fragment should not add the view itself,
+     *                           but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     *                           from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -136,6 +169,5 @@ public class TaxiReplyDialog extends AppCompatDialogFragment implements OnMapRea
 
         return trd;
     }
-
 
 }

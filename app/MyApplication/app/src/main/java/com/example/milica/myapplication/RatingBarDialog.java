@@ -29,12 +29,6 @@ public class RatingBarDialog extends AppCompatDialogFragment {
         final View view = inflater.inflate(R.layout.rating_dialog, null);
         final RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBarDrive);
 
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                //Toast.makeText(getContext(), "Rate saved", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         builder.setView(view)
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

@@ -330,7 +330,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
             public void run() {
                 try
                 {
-                    final Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
+                    final Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
 
                         final AMQP.Queue.DeclareOk q = channel.queueDeclare(session.getUser() + "123",
                                 true, false, false, null);
@@ -427,7 +427,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
             public void run() {
                 try {
                   //  Connection connection = factory.newConnection();
-                    Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
+                    Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
 
                     AMQP.Queue.DeclareOk q = channel.queueDeclare(session.getUser() +":zahtev", true,
                             false, false, null);
@@ -467,7 +467,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
                     try
                     {
                     //    Connection connection = factory.newConnection();
-                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
+                        Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -506,7 +506,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
                     try
                     {
                        // Connection connection = factory.newConnection();
-                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
+                        Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -547,7 +547,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
                     try
                     {
                    //    Connection connection = factory.newConnection();
-                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
+                        Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
@@ -590,7 +590,7 @@ public class MainActivityTaxi extends AppCompatActivity implements
                     try
                     {
                      //   Connection connection = factory.newConnection();
-                        Channel channel = ConnectionSingletonTaxi.getNewInstance().getConnection().createChannel();
+                        Channel channel = ConnectionSingletonClient.getNewInstance().getConnection().createChannel();
                         channel.confirmSelect();
 
                         while(true)
