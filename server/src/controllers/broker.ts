@@ -108,7 +108,7 @@ class Broker {
             taxiRepo
               .findDriverByUsername(endRide.username)
               .then((vozac: Taksista) => {
-                let rideRepo = getCustomRepository(RideRepository);
+                
 
                 vozac.lista_voznji.forEach((element: any) => {
                   if (element.u_toku === 1) {
@@ -116,6 +116,7 @@ class Broker {
                     console.log(ride);
                   }
                 });
+                let rideRepo = getCustomRepository(RideRepository);
                 ride.lokacija_do_lat = endRide.lat;
                 ride.lokacija_do_lon = endRide.lon;
                 ride.u_toku = 0;
