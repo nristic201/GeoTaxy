@@ -9,7 +9,6 @@ class TaxiDriverController {
 
   getProfileData(req: express.Request, res: express.Response) {
     let username = req.query.username;
-    console.log(username)
     this.taxiRepository = getCustomRepository(TaxiDriverRepository);
     this.taxiRepository.getDriverProfile(username).then((user: Taksista) => {
       let sum: number = 0;
@@ -21,7 +20,6 @@ class TaxiDriverController {
         }
       });
       let ocena = sum / n;
-      console.log(ocena);
       user.ocena = ocena;
       this.taxiRepository.save(user);
       res.json(user);

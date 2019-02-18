@@ -27,8 +27,6 @@ class Broker {
   }
   receiveCords() {
     this.conn.createChannel((err: any, ch: any) => {
-      if (err) console.log(err);
-      console.log('coords');
       ch.assertQueue("KoordinateTaksista");
       ch.consume(
         "KoordinateTaksista",
